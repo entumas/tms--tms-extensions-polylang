@@ -1,0 +1,56 @@
+// --------------------------------------------------
+//	HTML sitemap: Editor.css
+// --------------------------------------------------
+
+
+// Init ========================================
+
+// Settings
+@import "../../scss/settings/colors.scss";
+
+// Tools
+@import "../../scss/tools/block-wrapper-base.scss";
+
+// Admin
+@import "../../scss/editor/canvas.scss";
+@import "../../scss/editor/panel.scss";
+
+
+// Elements ========================================
+
+.tepll-html-sitemap {
+
+
+	// Default ========================================
+
+	&.is-default-mode {
+		@include canvas-component;
+
+		.components-placeholder__label {
+			@include canvas-component-title;
+		}
+	}
+
+
+	// Preview ========================================
+
+	&.is-preview-mode {
+		@import "../../scss/components/html-sitemap.scss";
+
+
+		.tepll-html-sitemap-root {
+			margin: 0;
+			padding: 0;
+			list-style-position: inside;
+		}
+
+
+		.wp-block-tepll-html-sitemap {
+			@include double-wrapper-reset;
+		}
+
+		a {
+			@include no-click;
+		}
+	}
+}

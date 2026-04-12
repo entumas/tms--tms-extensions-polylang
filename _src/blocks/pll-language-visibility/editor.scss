@@ -1,0 +1,51 @@
+// --------------------------------------------------
+//	Pll lang visibility: Editor.css
+// --------------------------------------------------
+
+
+// Init ========================================
+
+// Settings
+@import "../../scss/settings/colors.scss";
+
+// Tools
+@import "../../scss/tools/block-wrapper-base.scss";
+
+// Admin
+@import "../../scss/editor/canvas.scss";
+@import "../../scss/editor/panel.scss";
+
+
+// Elements ========================================
+
+.tepll-pll-language-visibility {
+	@include canvas-component;
+
+	&.is-show {
+		border-color: $color--success;
+	}
+
+	&.is-hide {
+		border-color: $color--error;
+	}
+
+
+	&-placeholder {
+		@include canvas-component-title;
+		font-size: 15px;
+		text-transform: uppercase;
+	}
+
+
+	.components-button.block-editor-button-block-appender {
+		padding: 0;
+		width: 24px;
+		height: 24px;
+		color: $color--white;
+		background: $color--black;
+	}
+
+	&.is-empty .block-list-appender {
+		bottom: -2px;
+	}
+}

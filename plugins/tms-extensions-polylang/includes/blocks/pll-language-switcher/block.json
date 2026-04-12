@@ -1,0 +1,111 @@
+{
+	"apiVersion": 3,
+	"name": "tepll/pll-language-switcher",
+	"title": "Language Switcher Advanced",
+	"description": "Advanced language switcher with customizable layout.",
+	"category": "tms-blocks",
+	"icon": "translation",
+	"keywords": [ "language", "switcher", "polylang" ],
+	"version": "1.0.1",
+	"textdomain": "tms-extensions-polylang",
+	"attributes": {
+		"display": {
+			"type": "string",
+			"default": "list"
+		},
+		"vertical": {
+			"type": "boolean",
+			"default": false
+		},
+		"label": {
+			"type": "string",
+			"default": "code"
+		},
+		"show_text": {
+			"type": "boolean",
+			"default": true
+		},
+		"show_flags": {
+			"type": "boolean",
+			"default": false
+		},
+		"hide_current": {
+			"type": "boolean",
+			"default": false
+		},
+		"hide_if_no_translation": {
+			"type": "boolean",
+			"default": false
+		},
+		"redirect_to_home": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"color": {
+			"text": false,
+			"background": true,
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": false,
+				"link": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"textAlign": true,
+			"textColumns": true,
+			"textIndent": true,
+			"__experimentalFontFamily": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextTransform": true,
+			"__experimentalWritingMode": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"margin": false,
+				"padding": false
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
+		"shadow": true
+	},
+	"example": {
+		"attributes": {
+			"display": "list",
+			"vertical": false,
+			"label": "code",
+			"show_text": true,
+			"show_flags": true,
+			"hide_current": false,
+			"hide_if_no_translation": false,
+			"redirect_to_home": false
+		}
+	},
+	"editorScript": "tepll-pll-language-switcher-editor",
+	"editorStyle": "tepll-pll-language-switcher-editor",
+	"style": [ "tepll-pll-language-switcher" ],
+	"script": [ "tepll-pll-language-switcher" ],
+	"render": "file:./render.php"
+}

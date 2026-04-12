@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TMS Extensions for Polylang\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-25 15:14+0000\n"
+"PO-Revision-Date: 2026-04-12 18:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: Catalan\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.3; wp-6.9.4; php-8.5.4\n"
+"X-Domain: tms-extensions-polylang"
+
+#. %s: plugin name.
+#: includes/dependencies.php:47
+#, php-format
+msgid "%s requires Polylang to be active before activation."
+msgstr "%s requereix que Polylang estigui actiu abans de l'activació."
+
+#. %s: plugin name.
+#: includes/dependencies.php:178
+#, php-format
+msgid "%s was automatically deactivated because Polylang is not active."
+msgstr "%s s'ha desactivat automàticament perquè Polylang no està actiu."
+
+#: includes/blocks/pll-language-visibility/register.php:12
+msgid "All languages"
+msgstr "Totes les llengües"
+
+#: includes/blocks/html-sitemap/register.php:46
+msgid "Alphabetical (title)"
+msgstr "Alfabeticament (títol)"
+
+#: includes/blocks/html-sitemap/register.php:61
+msgid "Anchor page in sitemap"
+msgstr "Pàgina àncora al mapa del lloc"
+
+#: includes/blocks/i18n/block-json-strings.php:15
+msgctxt "block description"
+msgid "Advanced language switcher with customizable layout."
+msgstr "Selector d'idiomes avançat amb disseny personalitzable."
+
+#: includes/blocks/i18n/block-json-strings.php:12
+msgctxt "block description"
+msgid ""
+"List pages, blog posts (and optional CPTs) in a hierarchical HTML sitemap."
+msgstr ""
+"Llista pàgines, articles del blog (i CPT opcionals) en un mapa del lloc HTML "
+"jeràrquic."
+
+#: includes/blocks/i18n/block-json-strings.php:18
+msgctxt "block description"
+msgid "Show or hide content by selected language."
+msgstr "Mostra o amaga el contingut per idioma seleccionat."
+
+#: includes/blocks/i18n/block-json-strings.php:11
+msgctxt "block title"
+msgid "HTML Sitemap"
+msgstr "Mapa del lloc HTML"
+
+#: includes/blocks/i18n/block-json-strings.php:14
+msgctxt "block title"
+msgid "Language Switcher Advanced"
+msgstr "Selector d'idiomes avançat"
+
+#: includes/blocks/i18n/block-json-strings.php:17
+msgctxt "block title"
+msgid "Language Visibility"
+msgstr "Visibilitat per idioma"
+
+#: includes/blocks/html-sitemap/register.php:47
+msgid "Blog (posts)"
+msgstr "Blog (articles)"
+
+#. %s: current language name or code.
+#: includes/components/pll-language-switcher/get.php:304
+#, php-format
+msgid "Choose language. Current: %s"
+msgstr "Tria l'idioma. Actual: %s"
+
+#: includes/blocks/html-sitemap/register.php:55
+msgid "Custom post types"
+msgstr "Tipus de contingut personalitzats"
+
+#: includes/blocks/html-sitemap/register.php:54
+msgid "Default (Settings → Reading)"
+msgstr "Predeterminat (Paràmetres → Lectura)"
+
+#: includes/blocks/pll-language-switcher/register.php:37
+msgid "Display"
+msgstr "Visualització"
+
+#: includes/blocks/pll-language-switcher/register.php:39
+msgid "Dropdown"
+msgstr "Desplegable"
+
+#. Description of the plugin
+msgid ""
+"Extends Polylang with reusable multilingual tools for block-based sites."
+msgstr ""
+"Amplia Polylang amb eines multilingües reutilitzables per a llocs web basats "
+"en blocs."
+
+#: includes/blocks/html-sitemap/register.php:40
+msgid "General"
+msgstr "General"
+
+#: includes/blocks/html-sitemap/register.php:52
+#: includes/blocks/html-sitemap/register.php:60
+msgid "Grouping taxonomy"
+msgstr "Taxonomia d'agrupació"
+
+#: includes/blocks/pll-language-switcher/register.php:46
+msgid "Hide current language"
+msgstr "Amaga l'idioma actual"
+
+#: includes/blocks/html-sitemap/register.php:42
+msgid "Hide empty taxonomy terms"
+msgstr "Amaga els termes de taxonomia buits"
+
+#: includes/blocks/pll-language-switcher/register.php:47
+msgid "Hide if this page has no translation"
+msgstr "Amaga si aquesta pàgina no té traducció"
+
+#: includes/blocks/pll-language-visibility/register.php:37
+msgid "Hide in selected language"
+msgstr "Amaga a l'idioma seleccionat"
+
+#: includes/blocks/html-sitemap/register.php:38
+#: includes/blocks/html-sitemap/register.php:39
+msgid "HTML Sitemap"
+msgstr "Mapa del lloc HTML"
+
+#. URI of the plugin
+msgid "https://github.com/entumas/tms--tms-extensions-polylang"
+msgstr "https://github.com/entumas/tms--tms-extensions-polylang"
+
+#. Author URI of the plugin
+msgid "https://tumasmuntane.com/"
+msgstr "https://tumasmuntane.com/"
+
+#: includes/blocks/html-sitemap/register.php:48
+msgid "Include blog section"
+msgstr "Inclou la secció del blog"
+
+#: includes/blocks/html-sitemap/register.php:56
+msgid "Include section in sitemap"
+msgstr "Inclou la secció al mapa del lloc"
+
+#: includes/blocks/pll-language-visibility/register.php:34
+msgid "Language"
+msgstr "Idioma"
+
+#: includes/blocks/pll-language-switcher/register.php:42
+msgid "Language code"
+msgstr "Codi d'idioma"
+
+#: includes/blocks/pll-language-switcher/register.php:43
+msgid "Language name"
+msgstr "Nom de l'idioma"
+
+#: includes/blocks/pll-language-switcher/register.php:36
+msgid "Language Switcher Advanced"
+msgstr "Selector d'idioma Pro"
+
+#: includes/blocks/pll-language-visibility/register.php:33
+msgid "Language Visibility"
+msgstr "Visibilitat per idioma"
+
+#: includes/blocks/pll-language-visibility/register.php:38
+msgid "Language Visibility content"
+msgstr "Visibilitat del contingut segons l'idioma"
+
+#: includes/components/pll-language-switcher/get.php:62
+#: includes/components/pll-language-switcher/get.php:253
+#: includes/components/pll-language-switcher/get.php:362
+msgid "Languages"
+msgstr "Llengües"
+
+#: includes/blocks/pll-language-switcher/register.php:41
+msgid "Link text"
+msgstr "Text de l'enllaç"
+
+#: includes/blocks/pll-language-switcher/register.php:38
+msgid "List"
+msgstr "Llista"
+
+#: includes/blocks/html-sitemap/register.php:63
+msgid "Loading pages…"
+msgstr "Carregant pàgines…"
+
+#: includes/blocks/html-sitemap/register.php:43
+msgid "Max depth (page hierarchy)"
+msgstr "Profunditat màxima (jerarquia de pàgines)"
+
+#: includes/blocks/html-sitemap/register.php:45
+msgid "Menu order"
+msgstr "Ordre del menú"
+
+#: includes/blocks/html-sitemap/register.php:65
+msgid "No public custom post types are registered."
+msgstr "No hi ha cap tipus de contingut personalitzat públic registrat."
+
+#: includes/components/pll-language-switcher/get.php:66
+msgid "No translation is available for this page."
+msgstr "No hi ha traducció disponible per a aquesta pàgina."
+
+#: includes/blocks/html-sitemap/register.php:64
+msgid "Page (not in list)"
+msgstr "Pàgina (no a la llista)"
+
+#: includes/blocks/html-sitemap/register.php:44
+msgid "Page sort"
+msgstr "Ordenació de pàgines"
+
+#: includes/blocks/html-sitemap/register.php:53
+msgid "Posts anchor page"
+msgstr "Pàgina d'ancoratge dels articles"
+
+#: includes/blocks/pll-language-switcher/register.php:48
+msgid "Redirect to language home"
+msgstr "Redirigeix a l'inici de l'idioma"
+
+#: includes/blocks/html-sitemap/register.php:57
+msgid "Section max depth (empty = global)"
+msgstr "Profunditat màxima de la secció (buit = global)"
+
+#: includes/blocks/html-sitemap/register.php:49
+msgid "Section max depth (leave empty to use global max depth)"
+msgstr ""
+"Profunditat màxima de la secció (deixa-ho en blanc per utilitzar la "
+"profunditat màxima global)"
+
+#: includes/blocks/html-sitemap/register.php:59
+msgid "Show entries"
+msgstr "Mostra entrades"
+
+#: includes/blocks/pll-language-switcher/register.php:45
+msgid "Show flags"
+msgstr "Mostra banderes"
+
+#: includes/blocks/pll-language-visibility/register.php:36
+msgid "Show in selected language"
+msgstr "Mostra a l'idioma seleccionat"
+
+#: includes/blocks/html-sitemap/register.php:41
+msgid "Show list bullets"
+msgstr "Mostra els punts de la llista"
+
+#: includes/blocks/html-sitemap/register.php:51
+msgid "Show posts"
+msgstr "Mostra articles"
+
+#: includes/blocks/html-sitemap/register.php:58
+msgid "Show taxonomy"
+msgstr "Mostra taxonomia"
+
+#: includes/blocks/html-sitemap/register.php:50
+msgid "Show taxonomy under blog page"
+msgstr "Mostra la taxonomia sota la pàgina del blog"
+
+#: includes/blocks/pll-language-switcher/register.php:40
+msgid "Show text"
+msgstr "Mostra text"
+
+#: includes/blocks/block-categories.php:12
+msgid "TMS Blocks"
+msgstr "TMS Blocks"
+
+#. Name of the plugin
+msgid "TMS Extensions for Polylang"
+msgstr "TMS Extensions per a Polylang"
+
+#. Author of the plugin
+msgid "Tumàs Muntané"
+msgstr "Tumàs Muntané"
+
+#: includes/dependencies.php:50
+msgid "Unmet dependency"
+msgstr "Dependència no satisfeta"
+
+#: includes/blocks/pll-language-switcher/register.php:44
+msgid "Vertical list"
+msgstr "Llista vertical"
+
+#: includes/blocks/pll-language-visibility/register.php:35
+msgid "Visibility mode"
+msgstr "Mode de visibilitat"
+
+#. %s: plugin name.
+#: includes/dependencies.php:165
+#, php-format
+msgid "You cannot deactivate Polylang while %s is active."
+msgstr "No podeu desactivar Polylang mentre %s estigui actiu."
+
+#: includes/blocks/html-sitemap/register.php:62
+msgid "— Select a page —"
+msgstr "— Selecciona una pàgina —"

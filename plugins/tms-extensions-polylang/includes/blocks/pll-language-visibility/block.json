@@ -1,0 +1,43 @@
+{
+	"apiVersion": 3,
+	"name": "tepll/pll-language-visibility",
+	"title": "Language Visibility",
+	"description": "Show or hide content by selected language.",
+	"category": "tms-blocks",
+	"icon": "visibility",
+	"keywords": [ "language", "visibility", "polylang" ],
+	"version": "1.0.1",
+	"textdomain": "tms-extensions-polylang",
+	"attributes": {
+		"lang": {
+			"type": "string",
+			"default": ""
+		},
+		"mode": {
+			"type": "string",
+			"default": "show_if"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"example": {
+		"attributes": {
+			"lang": "en",
+			"mode": "show_if"
+		},
+		"innerBlocks": [
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+				}
+			}
+		]
+	},
+	"editorScript": "tepll-pll-language-visibility-editor",
+	"editorStyle": "tepll-pll-language-visibility-editor",
+	"style": [],
+	"render": "file:./render.php"
+}

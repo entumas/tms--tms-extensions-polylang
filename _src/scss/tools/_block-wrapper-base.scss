@@ -1,0 +1,16 @@
+// --------------------------------------------------
+//	Tools: Block wrapper base
+// --------------------------------------------------
+
+
+// @include block-wrapper-base();
+@mixin block-wrapper-base() {
+	box-sizing: border-box;
+
+	&:not([class*='wp-elements-']) {
+		a,
+		button {
+			color: inherit;
+		}
+	}
+}

@@ -1,0 +1,297 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TMS Extensions for Polylang\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 18:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.1; wp-6.9; php-8.4.15\n"
+"X-Domain: tms-extensions-polylang"
+
+#. %s: plugin name.
+#: includes/dependencies.php:47
+#, php-format
+msgid "%s requires Polylang to be active before activation."
+msgstr ""
+
+#. %s: plugin name.
+#: includes/dependencies.php:178
+#, php-format
+msgid "%s was automatically deactivated because Polylang is not active."
+msgstr ""
+
+#: includes/blocks/pll-language-visibility/register.php:12
+msgid "All languages"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:46
+msgid "Alphabetical (title)"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:61
+msgid "Anchor page in sitemap"
+msgstr ""
+
+#: includes/blocks/i18n/block-json-strings.php:15
+msgctxt "block description"
+msgid "Advanced language switcher with customizable layout."
+msgstr ""
+
+#: includes/blocks/i18n/block-json-strings.php:12
+msgctxt "block description"
+msgid ""
+"List pages, blog posts (and optional CPTs) in a hierarchical HTML sitemap."
+msgstr ""
+
+#: includes/blocks/i18n/block-json-strings.php:18
+msgctxt "block description"
+msgid "Show or hide content by selected language."
+msgstr ""
+
+#: includes/blocks/i18n/block-json-strings.php:11
+msgctxt "block title"
+msgid "HTML Sitemap"
+msgstr ""
+
+#: includes/blocks/i18n/block-json-strings.php:14
+msgctxt "block title"
+msgid "Language Switcher Advanced"
+msgstr ""
+
+#: includes/blocks/i18n/block-json-strings.php:17
+msgctxt "block title"
+msgid "Language Visibility"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:47
+msgid "Blog (posts)"
+msgstr ""
+
+#. %s: current language name or code.
+#: includes/components/pll-language-switcher/get.php:304
+#, php-format
+msgid "Choose language. Current: %s"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:55
+msgid "Custom post types"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:54
+msgid "Default (Settings → Reading)"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:37
+msgid "Display"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:39
+msgid "Dropdown"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Extends Polylang with reusable multilingual tools for block-based sites."
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:40
+msgid "General"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:52
+#: includes/blocks/html-sitemap/register.php:60
+msgid "Grouping taxonomy"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:46
+msgid "Hide current language"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:42
+msgid "Hide empty taxonomy terms"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:47
+msgid "Hide if this page has no translation"
+msgstr ""
+
+#: includes/blocks/pll-language-visibility/register.php:37
+msgid "Hide in selected language"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:38
+#: includes/blocks/html-sitemap/register.php:39
+msgid "HTML Sitemap"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/entumas/tms--tms-extensions-polylang"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://tumasmuntane.com/"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:48
+msgid "Include blog section"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:56
+msgid "Include section in sitemap"
+msgstr ""
+
+#: includes/blocks/pll-language-visibility/register.php:34
+msgid "Language"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:42
+msgid "Language code"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:43
+msgid "Language name"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:36
+msgid "Language Switcher Advanced"
+msgstr ""
+
+#: includes/blocks/pll-language-visibility/register.php:33
+msgid "Language Visibility"
+msgstr ""
+
+#: includes/blocks/pll-language-visibility/register.php:38
+msgid "Language Visibility content"
+msgstr ""
+
+#: includes/components/pll-language-switcher/get.php:62
+#: includes/components/pll-language-switcher/get.php:253
+#: includes/components/pll-language-switcher/get.php:362
+msgid "Languages"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:41
+msgid "Link text"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:38
+msgid "List"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:63
+msgid "Loading pages…"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:43
+msgid "Max depth (page hierarchy)"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:45
+msgid "Menu order"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:65
+msgid "No public custom post types are registered."
+msgstr ""
+
+#: includes/components/pll-language-switcher/get.php:66
+msgid "No translation is available for this page."
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:64
+msgid "Page (not in list)"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:44
+msgid "Page sort"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:53
+msgid "Posts anchor page"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:48
+msgid "Redirect to language home"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:57
+msgid "Section max depth (empty = global)"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:49
+msgid "Section max depth (leave empty to use global max depth)"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:59
+msgid "Show entries"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:45
+msgid "Show flags"
+msgstr ""
+
+#: includes/blocks/pll-language-visibility/register.php:36
+msgid "Show in selected language"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:41
+msgid "Show list bullets"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:51
+msgid "Show posts"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:58
+msgid "Show taxonomy"
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:50
+msgid "Show taxonomy under blog page"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:40
+msgid "Show text"
+msgstr ""
+
+#: includes/blocks/block-categories.php:12
+msgid "TMS Blocks"
+msgstr ""
+
+#. Name of the plugin
+msgid "TMS Extensions for Polylang"
+msgstr ""
+
+#. Author of the plugin
+msgid "Tumàs Muntané"
+msgstr ""
+
+#: includes/dependencies.php:50
+msgid "Unmet dependency"
+msgstr ""
+
+#: includes/blocks/pll-language-switcher/register.php:44
+msgid "Vertical list"
+msgstr ""
+
+#: includes/blocks/pll-language-visibility/register.php:35
+msgid "Visibility mode"
+msgstr ""
+
+#. %s: plugin name.
+#: includes/dependencies.php:165
+#, php-format
+msgid "You cannot deactivate Polylang while %s is active."
+msgstr ""
+
+#: includes/blocks/html-sitemap/register.php:62
+msgid "— Select a page —"
+msgstr ""

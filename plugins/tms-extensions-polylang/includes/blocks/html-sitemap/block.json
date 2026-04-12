@@ -1,0 +1,122 @@
+{
+	"apiVersion": 3,
+	"name": "tepll/html-sitemap",
+	"title": "HTML Sitemap for Polylang",
+	"description": "List pages, blog posts (and optional CPTs) in a hierarchical HTML sitemap.",
+	"category": "tms-blocks",
+	"icon": "networking",
+	"keywords": [ "sitemap", "pages", "polylang" ],
+	"version": "1.0.1",
+	"textdomain": "tms-extensions-polylang",
+	"attributes": {
+		"hide_empty": {
+			"type": "boolean",
+			"default": true
+		},
+		"max_depth": {
+			"type": "number",
+			"default": 3
+		},
+		"page_sort": {
+			"type": "string",
+			"default": "menu_order"
+		},
+		"blog": {
+			"type": "boolean",
+			"default": true
+		},
+		"blog_max_depth": {
+			"type": "string",
+			"default": ""
+		},
+		"blog_show_taxonomy": {
+			"type": "boolean",
+			"default": true
+		},
+		"blog_show_posts": {
+			"type": "boolean",
+			"default": true
+		},
+		"blog_taxonomy": {
+			"type": "string",
+			"default": "category"
+		},
+		"blog_parent_page_id": {
+			"type": "number",
+			"default": 0
+		},
+		"cpt_configs": {
+			"type": "array",
+			"default": []
+		},
+		"show_list_bullets": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"color": {
+			"text": true,
+			"background": true,
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true,
+				"link": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"textAlign": true,
+			"textColumns": true,
+			"textIndent": true,
+			"__experimentalFontFamily": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextTransform": true,
+			"__experimentalWritingMode": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"margin": false,
+				"padding": false
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
+		"shadow": true
+	},
+	"example": {
+		"attributes": {
+			"hide_empty": true,
+			"max_depth": 2,
+			"page_sort": "menu_order",
+			"blog": true,
+			"blog_show_taxonomy": true,
+			"blog_show_posts": true,
+			"blog_taxonomy": "category",
+			"show_list_bullets": true
+		}
+	},
+	"editorScript": "tepll-html-sitemap-editor",
+	"editorStyle": "tepll-html-sitemap-editor",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}
