@@ -20,5 +20,5 @@ echo wp_kses(
 			'mode' => (string) ( $tepll_language_visibility_block_attributes['mode'] ?? 'show_if' ),
 		)
 	),
-	language_visibility_get_kses_allowed_html()
+	tepll_language_visibility_get_kses_allowed_html()
 );

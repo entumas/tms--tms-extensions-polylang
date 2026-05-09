@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 add_shortcode( 'tepll-html-sitemap', function( $atts = array() ) : string {
-	if ( ! function_exists( 'tepll_html_sitemap_get_html' ) || ! function_exists( 'html_sitemap_args_from_shortcode_attributes' ) ) return '';
+	if ( ! function_exists( 'tepll_html_sitemap_get_html' ) || ! function_exists( 'tepll_html_sitemap_args_from_shortcode_attributes' ) ) return '';
 
 	$atts = shortcode_atts(
 		array(
@@ -30,5 +30,5 @@ add_shortcode( 'tepll-html-sitemap', function( $atts = array() ) : string {
 		'tepll-html-sitemap'
 	);
 
-	return tepll_html_sitemap_get_html( html_sitemap_args_from_shortcode_attributes( $atts ) );
+	return tepll_html_sitemap_get_html( tepll_html_sitemap_args_from_shortcode_attributes( $atts ) );
 } );

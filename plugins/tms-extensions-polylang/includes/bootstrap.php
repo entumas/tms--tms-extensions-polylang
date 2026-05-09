@@ -41,4 +41,4 @@ add_action( 'init', function() {
 	tepll_include_file( 'blocks/pll-language-visibility/register.php' );
 	tepll_include_file( 'blocks/pll-language-switcher/register.php' );
 	tepll_include_file( 'blocks/html-sitemap/register.php' );
-}, 20 );
+}, 25 );

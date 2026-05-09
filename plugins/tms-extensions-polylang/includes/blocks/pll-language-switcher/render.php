@@ -49,7 +49,7 @@ if ( '' === trim( (string) $tepll_language_switcher_wrapper_attributes_raw ) ) :
 endif;
 
 $tepll_language_switcher_is_dropdown = 'dropdown' === sanitize_key( $tepll_language_switcher_display_mode );
-$tepll_language_switcher_wrapper_split       = language_switcher_dropdown_split_block_wrapper_attributes( $tepll_language_switcher_wrapper_attributes_raw, $tepll_language_switcher_is_dropdown );
+$tepll_language_switcher_wrapper_split       = tepll_language_switcher_dropdown_split_block_wrapper_attributes( $tepll_language_switcher_wrapper_attributes_raw, $tepll_language_switcher_is_dropdown );
 
 $tepll_language_switcher_wrapper_shell = $tepll_language_switcher_wrapper_split['shell'];
 $tepll_language_switcher_block_nav = array(
@@ -64,9 +64,7 @@ $tepll_language_switcher_block_nav = array(
 		: array(),
 );
 
-if ( function_exists( 'language_switcher_apply_block_nav_link_color_as_text' ) ) :
-	$tepll_language_switcher_block_nav = language_switcher_apply_block_nav_link_color_as_text( $tepll_language_switcher_block_attributes, $tepll_language_switcher_block_nav );
-endif;
+$tepll_language_switcher_block_nav = tepll_language_switcher_apply_block_nav_link_color_as_text( $tepll_language_switcher_block_attributes, $tepll_language_switcher_block_nav );
 
 $tepll_language_switcher_dropdown_ul_class = $tepll_language_switcher_is_dropdown ? (string) $tepll_language_switcher_wrapper_split['dropdown_ul']['class'] : '';
 $tepll_language_switcher_dropdown_ul_style = $tepll_language_switcher_is_dropdown ? (string) $tepll_language_switcher_wrapper_split['dropdown_ul']['style'] : '';
@@ -97,9 +95,7 @@ if ( '' === trim( (string) $tepll_language_switcher_markup ) ) return;
 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo $tepll_language_switcher_markup;
 
-$tepll_language_switcher_link_hover_style_markup = function_exists( 'language_switcher_build_link_hover_style_tag' )
-	? language_switcher_build_link_hover_style_tag( $tepll_language_switcher_block_attributes, $tepll_language_switcher_block_nav )
-	: '';
+$tepll_language_switcher_link_hover_style_markup = tepll_language_switcher_build_link_hover_style_tag( $tepll_language_switcher_block_attributes, $tepll_language_switcher_block_nav );
 
 if ( '' !== trim( (string) $tepll_language_switcher_link_hover_style_markup ) ) :
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

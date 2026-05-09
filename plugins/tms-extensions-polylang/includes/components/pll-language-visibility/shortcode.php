@@ -26,6 +26,6 @@ add_shortcode( 'tepll-language-visibility', function( $atts = array(), $content 
 				'mode' => (string) $atts['mode'],
 			)
 		),
-		language_visibility_get_kses_allowed_html()
+		tepll_language_visibility_get_kses_allowed_html()
 	);
 } );

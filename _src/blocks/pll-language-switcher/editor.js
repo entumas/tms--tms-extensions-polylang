@@ -12,12 +12,12 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 		{ InspectorControls, useBlockProps }                  = wp.blockEditor
 	const { ServerSideRender } = wp.serverSideRender || {}
 
-	const languageSwitcherEditorI18nStrings = window.tepllLanguageSwitcherEditorI18n
+	const tepllLanguageSwitcherEditorI18nStrings = window.tepllLanguageSwitcherEditorI18n
 
 	const { useState, useRef, useEffect } = wp.element
 
 	// Editor preview mode (auto/default)
-	const languageSwitcherEditorPreviewMode = 'auto'
+	const tepllLanguageSwitcherEditorPreviewMode = 'auto'
 
 	registerBlockType( 'tepll/pll-language-switcher', {
 		edit: ( props ) => {
@@ -32,7 +32,7 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 				redirect_to_home,
 			}, setAttributes } = props
 
-			const initialDefault = languageSwitcherEditorPreviewMode === 'default' || ! ServerSideRender
+			const initialDefault = tepllLanguageSwitcherEditorPreviewMode === 'default' || ! ServerSideRender
 
 			const [ previewState, setPreviewState ] = useState( initialDefault ? 'default' : 'preview' )
 
@@ -48,36 +48,36 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 				}
 			}, [ redirect_to_home, hide_if_no_translation ] )
 
-			const languageSwitcherEditorPreviewLayoutClassName = previewState === 'default'
+			const tepllLanguageSwitcherEditorPreviewLayoutClassName = previewState === 'default'
 				? 'is-default-mode'
 				: 'is-preview-mode'
 
-			const languageSwitcherEditorRootBlockProps = useBlockProps( {
-				className: 'tepll-pll-language-switcher is-placeholder ' + languageSwitcherEditorPreviewLayoutClassName,
+			const tepllLanguageSwitcherEditorRootBlockProps = useBlockProps( {
+				className: 'tepll-pll-language-switcher is-placeholder ' + tepllLanguageSwitcherEditorPreviewLayoutClassName,
 			} )
 
-			const languageSwitcherEditorDisplayControlOptions = [
-				{ value: 'list', label: languageSwitcherEditorI18nStrings.displayList },
-				{ value: 'dropdown', label: languageSwitcherEditorI18nStrings.displayDropdown },
+			const tepllLanguageSwitcherEditorDisplayControlOptions = [
+				{ value: 'list', label: tepllLanguageSwitcherEditorI18nStrings.displayList },
+				{ value: 'dropdown', label: tepllLanguageSwitcherEditorI18nStrings.displayDropdown },
 			]
-			const languageSwitcherEditorLabelControlOptions = [
-				{ value: 'code', label: languageSwitcherEditorI18nStrings.labelCode },
-				{ value: 'name', label: languageSwitcherEditorI18nStrings.labelName },
+			const tepllLanguageSwitcherEditorLabelControlOptions = [
+				{ value: 'code', label: tepllLanguageSwitcherEditorI18nStrings.labelCode },
+				{ value: 'name', label: tepllLanguageSwitcherEditorI18nStrings.labelName },
 			]
 
-			const languageSwitcherEditorMarkDefaultPreview = () => {
+			const tepllLanguageSwitcherEditorMarkDefaultPreview = () => {
 				if ( previewStateRef.current === 'default' ) return
 				setTimeout( () => setPreviewState( 'default' ), 0 )
 			}
 
-			const languageSwitcherEditorRenderPreviewFallback = () => {
-				languageSwitcherEditorMarkDefaultPreview()
+			const tepllLanguageSwitcherEditorRenderPreviewFallback = () => {
+				tepllLanguageSwitcherEditorMarkDefaultPreview()
 
 				return wp.element.createElement(
 					'div',
 					{ className: 'components-placeholder__label' },
 					wp.element.createElement( Dashicon, { icon: 'translation' } ),
-					wp.element.createElement( 'label', null, languageSwitcherEditorI18nStrings.panelTitle )
+					wp.element.createElement( 'label', null, tepllLanguageSwitcherEditorI18nStrings.panelTitle )
 				)
 			}
 
@@ -85,24 +85,24 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 				? wp.element.createElement(
 					'div',
 					{ className: 'is-preview' },
-					languageSwitcherEditorPreviewMode === 'default'
-						? languageSwitcherEditorRenderPreviewFallback()
+					tepllLanguageSwitcherEditorPreviewMode === 'default'
+						? tepllLanguageSwitcherEditorRenderPreviewFallback()
 						: wp.element.createElement( ServerSideRender, {
 							block: 'tepll/pll-language-switcher',
 							attributes: props.attributes,
 							LoadingResponsePlaceholder: () => null,
-							ErrorResponsePlaceholder: languageSwitcherEditorRenderPreviewFallback,
-							EmptyResponsePlaceholder: languageSwitcherEditorRenderPreviewFallback,
+							ErrorResponsePlaceholder: tepllLanguageSwitcherEditorRenderPreviewFallback,
+							EmptyResponsePlaceholder: tepllLanguageSwitcherEditorRenderPreviewFallback,
 						} )
 				)
-				: languageSwitcherEditorRenderPreviewFallback()
+				: tepllLanguageSwitcherEditorRenderPreviewFallback()
 
 			return (
-				wp.element.createElement( 'div', languageSwitcherEditorRootBlockProps,
+				wp.element.createElement( 'div', tepllLanguageSwitcherEditorRootBlockProps,
 					wp.element.createElement( InspectorControls, {},
-						wp.element.createElement( PanelBody, { title: languageSwitcherEditorI18nStrings.panelTitle, initialOpen: true },
+						wp.element.createElement( PanelBody, { title: tepllLanguageSwitcherEditorI18nStrings.panelTitle, initialOpen: true },
 							wp.element.createElement( SelectControl, {
-								label: languageSwitcherEditorI18nStrings.displayLabel,
+								label: tepllLanguageSwitcherEditorI18nStrings.displayLabel,
 								value: display,
 								onChange: ( val ) => setAttributes( {
 									display: val,
@@ -113,43 +113,43 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 										? false
 										: hide_current,
 								} ),
-								options: languageSwitcherEditorDisplayControlOptions,
+								options: tepllLanguageSwitcherEditorDisplayControlOptions,
 							} ),
 							display === 'list'
 								? wp.element.createElement( ToggleControl, {
-									label: languageSwitcherEditorI18nStrings.vertical,
+									label: tepllLanguageSwitcherEditorI18nStrings.vertical,
 									checked: vertical,
 									onChange: ( val ) => setAttributes( { vertical: val } ),
 								} )
 								: null,
 							wp.element.createElement( ToggleControl, {
-								label: languageSwitcherEditorI18nStrings.showText,
+								label: tepllLanguageSwitcherEditorI18nStrings.showText,
 								checked: show_text,
 								onChange: ( val ) => setAttributes( { show_text: val } ),
 							} ),
 							show_text
 								? wp.element.createElement( SelectControl, {
-									label: languageSwitcherEditorI18nStrings.textLabel,
+									label: tepllLanguageSwitcherEditorI18nStrings.textLabel,
 									value: label,
 									onChange: ( val ) => setAttributes( { label: val } ),
-									options: languageSwitcherEditorLabelControlOptions,
+									options: tepllLanguageSwitcherEditorLabelControlOptions,
 								} )
 								: null,
 							wp.element.createElement( ToggleControl, {
-								label: languageSwitcherEditorI18nStrings.showFlags,
+								label: tepllLanguageSwitcherEditorI18nStrings.showFlags,
 								checked: show_flags,
 								onChange: ( val ) => setAttributes( { show_flags: val } ),
 							} ),
 							display !== 'dropdown'
 								? wp.element.createElement( ToggleControl, {
-									label: languageSwitcherEditorI18nStrings.hideCurrent,
+									label: tepllLanguageSwitcherEditorI18nStrings.hideCurrent,
 									checked: hide_current,
 									onChange: ( val ) => setAttributes( { hide_current: val } ),
 								} )
 								: null,
 							! redirect_to_home
 								? wp.element.createElement( ToggleControl, {
-									label: languageSwitcherEditorI18nStrings.hideIfNoTranslation,
+									label: tepllLanguageSwitcherEditorI18nStrings.hideIfNoTranslation,
 									checked: hide_if_no_translation,
 									onChange: ( val ) => setAttributes( {
 										hide_if_no_translation: val,
@@ -159,7 +159,7 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 								: null,
 							! hide_if_no_translation
 								? wp.element.createElement( ToggleControl, {
-									label: languageSwitcherEditorI18nStrings.redirectToHome,
+									label: tepllLanguageSwitcherEditorI18nStrings.redirectToHome,
 									checked: redirect_to_home,
 									onChange: ( val ) => setAttributes( {
 										redirect_to_home: val,

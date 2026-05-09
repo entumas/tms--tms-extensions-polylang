@@ -66,12 +66,8 @@ wp_localize_script(
 	)
 );
 
-$tepll_html_sitemap_editor_public_cpt_definitions = function_exists( 'html_sitemap_get_public_cpt_definitions_for_editor' )
-	? html_sitemap_get_public_cpt_definitions_for_editor()
-	: array();
-$tepll_html_sitemap_editor_blog_taxonomy_definitions = function_exists( 'html_sitemap_get_blog_taxonomy_definitions_for_editor' )
-	? html_sitemap_get_blog_taxonomy_definitions_for_editor()
-	: array();
+$tepll_html_sitemap_editor_public_cpt_definitions    = tepll_html_sitemap_get_public_cpt_definitions_for_editor();
+$tepll_html_sitemap_editor_blog_taxonomy_definitions = tepll_html_sitemap_get_blog_taxonomy_definitions_for_editor();
 wp_add_inline_script(
 	'tepll-html-sitemap-editor',
 	'window.tepllHtmlSitemapEditorCptDefinitions = ' . wp_json_encode( $tepll_html_sitemap_editor_public_cpt_definitions ) . ';'

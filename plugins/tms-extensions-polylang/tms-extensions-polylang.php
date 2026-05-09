@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       TMS Extensions for Polylang
- * Plugin URI:        https://github.com/entumas/tms--tms-extensions-polylang
+ * Plugin URI:        https://wordpress.org/plugins/tms-extensions-polylang
  * Description:       Extends Polylang with reusable multilingual tools for block-based sites.
  * Version:           1.0.0
  * Author:            Tumàs Muntané

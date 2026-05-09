@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: TMS Extensions for Polylang\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 15:14+0000\n"
-"PO-Revision-Date: 2026-04-12 18:51+0000\n"
+"PO-Revision-Date: 2026-04-13 13:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: French (France)\n"
 "Language: fr_FR\n"
@@ -16,13 +16,13 @@ msgstr ""
 "X-Loco-Version: 2.8.3; wp-6.9.4; php-8.3.30"
 
 #. %s: plugin name.
-#: includes/dependencies.php:47
+#: includes/dependencies.php:42
 #, php-format
 msgid "%s requires Polylang to be active before activation."
 msgstr "%s nécessite que Polylang soit actif avant l’activation."
 
 #. %s: plugin name.
-#: includes/dependencies.php:178
+#: includes/dependencies.php:167
 #, php-format
 msgid "%s was automatically deactivated because Polylang is not active."
 msgstr "%s a été automatiquement désactivé car Polylang n’est pas actif."
@@ -59,8 +59,8 @@ msgstr "Afficher ou masquer le contenu selon la langue sélectionnée."
 
 #: includes/blocks/i18n/block-json-strings.php:11
 msgctxt "block title"
-msgid "HTML Sitemap"
-msgstr "Plan du site HTML"
+msgid "HTML Sitemap for Polylang"
+msgstr "Plan du site HTML pour Polylang"
 
 #: includes/blocks/i18n/block-json-strings.php:14
 msgctxt "block title"
@@ -77,7 +77,7 @@ msgid "Blog (posts)"
 msgstr "Blog (articles)"
 
 #. %s: current language name or code.
-#: includes/components/pll-language-switcher/get.php:304
+#: includes/components/pll-language-switcher/get.php:301
 #, php-format
 msgid "Choose language. Current: %s"
 msgstr "Choisir la langue. Actuelle : %s"
@@ -132,8 +132,8 @@ msgstr "Masquer dans la langue sélectionnée"
 
 #: includes/blocks/html-sitemap/register.php:38
 #: includes/blocks/html-sitemap/register.php:39
-msgid "HTML Sitemap"
-msgstr "Plan du site HTML"
+msgid "HTML Sitemap for Polylang"
+msgstr "Plan du site HTML pour Polylang"
 
 #. URI of the plugin
 msgid "https://github.com/entumas/tms--tms-extensions-polylang"
@@ -175,9 +175,9 @@ msgstr "Visibilité de langue"
 msgid "Language Visibility content"
 msgstr "Visibilité du contenu par langue"
 
-#: includes/components/pll-language-switcher/get.php:62
-#: includes/components/pll-language-switcher/get.php:253
-#: includes/components/pll-language-switcher/get.php:362
+#: includes/components/pll-language-switcher/get.php:61
+#: includes/components/pll-language-switcher/get.php:250
+#: includes/components/pll-language-switcher/get.php:359
 msgid "Languages"
 msgstr "Langues"
 
@@ -205,7 +205,7 @@ msgstr "Ordre du menu"
 msgid "No public custom post types are registered."
 msgstr "Aucun type de contenu personnalisé public n’est enregistré."
 
-#: includes/components/pll-language-switcher/get.php:66
+#: includes/components/pll-language-switcher/get.php:65
 msgid "No translation is available for this page."
 msgstr "Aucune traduction n'est disponible pour cette page."
 
@@ -279,7 +279,7 @@ msgstr "TMS Extensions pour Polylang"
 msgid "Tumàs Muntané"
 msgstr "Tumàs Muntané"
 
-#: includes/dependencies.php:50
+#: includes/dependencies.php:45
 msgid "Unmet dependency"
 msgstr "Dépendance non satisfaite"
 
@@ -292,7 +292,7 @@ msgid "Visibility mode"
 msgstr "Mode de visibilité"
 
 #. %s: plugin name.
-#: includes/dependencies.php:165
+#: includes/dependencies.php:154
 #, php-format
 msgid "You cannot deactivate Polylang while %s is active."
 msgstr "Vous ne pouvez pas désactiver Polylang tant que %s est actif."

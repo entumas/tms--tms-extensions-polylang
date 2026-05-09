@@ -13,80 +13,80 @@
 		Dashicon,
 	} = wp.components
 	const { InspectorControls, useBlockProps } = wp.blockEditor
-	const { createElement: el, Fragment } = wp.element
-	const { ServerSideRender } = wp.serverSideRender || {}
+	const { createElement: el, Fragment }      = wp.element
+	const { ServerSideRender }                 = wp.serverSideRender || {}
 
-	const htmlSitemapEditorI18nStrings = window.tepllHtmlSitemapEditorI18n || {}
-	const { useState, useRef, useEffect } = wp.element
+	const tepllHtmlSitemapEditorI18nStrings = window.tepllHtmlSitemapEditorI18n || {}
+	const { useState, useRef, useEffect }   = wp.element
 
 	// Editor preview mode (auto/default)
-	const htmlSitemapEditorPreviewMode = 'auto'
+	const tepllHtmlSitemapEditorPreviewMode = 'auto'
 
-	const htmlSitemapEditorPublicCptDefinitions = window.tepllHtmlSitemapEditorCptDefinitions && Array.isArray( window.tepllHtmlSitemapEditorCptDefinitions )
+	const tepllHtmlSitemapEditorPublicCptDefinitions = window.tepllHtmlSitemapEditorCptDefinitions && Array.isArray( window.tepllHtmlSitemapEditorCptDefinitions )
 		? window.tepllHtmlSitemapEditorCptDefinitions
 		: []
-	const htmlSitemapEditorBlogTaxonomyDefinitions = window.tepllHtmlSitemapEditorBlogTaxonomies && Array.isArray( window.tepllHtmlSitemapEditorBlogTaxonomies )
+	const tepllHtmlSitemapEditorBlogTaxonomyDefinitions = window.tepllHtmlSitemapEditorBlogTaxonomies && Array.isArray( window.tepllHtmlSitemapEditorBlogTaxonomies )
 		? window.tepllHtmlSitemapEditorBlogTaxonomies
 		: []
 
 	/** Stable reference for core-data getEntityRecords resolution cache. */
-	const htmlSitemapEditorPageListQuery = {
+	const tepllHtmlSitemapEditorPageListQuery = {
 		per_page: -1,
 		status: 'publish',
 		orderby: 'menu_order',
 		order: 'asc',
 	}
 
-	const htmlSitemapEditorDefaultCptRow = ( def ) => {
-		const htmlSitemapEditorResolvedDefaultTaxonomySlug = def.taxonomies && def.taxonomies.length
+	const tepllHtmlSitemapEditorDefaultCptRow = ( def ) => {
+		const tepllHtmlSitemapEditorResolvedDefaultTaxonomySlug = def.taxonomies && def.taxonomies.length
 			? def.taxonomies[ 0 ].slug
 			: ''
 		return {
 			slug: def.slug,
-			show_taxonomy: !! htmlSitemapEditorResolvedDefaultTaxonomySlug,
+			show_taxonomy: !! tepllHtmlSitemapEditorResolvedDefaultTaxonomySlug,
 			show_posts: true,
-			taxonomy: htmlSitemapEditorResolvedDefaultTaxonomySlug,
+			taxonomy: tepllHtmlSitemapEditorResolvedDefaultTaxonomySlug,
 			parent_page_id: 0,
 		}
 	}
 
-	const htmlSitemapEditorFindRowIndex = ( rows, slug ) => {
-		for ( let htmlSitemapEditorRowScanIndex = 0; htmlSitemapEditorRowScanIndex < rows.length; htmlSitemapEditorRowScanIndex++ ) {
-			if ( rows[ htmlSitemapEditorRowScanIndex ] && rows[ htmlSitemapEditorRowScanIndex ].slug === slug ) {
-				return htmlSitemapEditorRowScanIndex
+	const tepllHtmlSitemapEditorFindRowIndex = ( rows, slug ) => {
+		for ( let tepllHtmlSitemapEditorRowScanIndex = 0; tepllHtmlSitemapEditorRowScanIndex < rows.length; tepllHtmlSitemapEditorRowScanIndex++ ) {
+			if ( rows[ tepllHtmlSitemapEditorRowScanIndex ] && rows[ tepllHtmlSitemapEditorRowScanIndex ].slug === slug ) {
+				return tepllHtmlSitemapEditorRowScanIndex
 			}
 		}
 		return -1
 	}
 
-	const htmlSitemapEditorMakePageSelectOptions = ( firstOpt, records ) => {
-		const htmlSitemapEditorPageSelectOptionList = [ firstOpt ]
+	const tepllHtmlSitemapEditorMakePageSelectOptions = ( firstOpt, records ) => {
+		const tepllHtmlSitemapEditorPageSelectOptionList = [ firstOpt ]
 		if ( records && records.length ) {
-			for ( let htmlSitemapEditorPageRecordIndex = 0; htmlSitemapEditorPageRecordIndex < records.length; htmlSitemapEditorPageRecordIndex++ ) {
-				const htmlSitemapEditorPageRecord = records[ htmlSitemapEditorPageRecordIndex ]
-				const htmlSitemapEditorPageRecordTitle = htmlSitemapEditorPageRecord.title && htmlSitemapEditorPageRecord.title.rendered
-					? htmlSitemapEditorPageRecord.title.rendered
-					: '#' + htmlSitemapEditorPageRecord.id
-				htmlSitemapEditorPageSelectOptionList.push( { value: String( htmlSitemapEditorPageRecord.id ), label: htmlSitemapEditorPageRecordTitle } )
+			for ( let tepllHtmlSitemapEditorPageRecordIndex = 0; tepllHtmlSitemapEditorPageRecordIndex < records.length; tepllHtmlSitemapEditorPageRecordIndex++ ) {
+				const tepllHtmlSitemapEditorPageRecord = records[ tepllHtmlSitemapEditorPageRecordIndex ]
+				const tepllHtmlSitemapEditorPageRecordTitle = tepllHtmlSitemapEditorPageRecord.title && tepllHtmlSitemapEditorPageRecord.title.rendered
+					? tepllHtmlSitemapEditorPageRecord.title.rendered
+					: '#' + tepllHtmlSitemapEditorPageRecord.id
+				tepllHtmlSitemapEditorPageSelectOptionList.push( { value: String( tepllHtmlSitemapEditorPageRecord.id ), label: tepllHtmlSitemapEditorPageRecordTitle } )
 			}
 		}
-		return htmlSitemapEditorPageSelectOptionList
+		return tepllHtmlSitemapEditorPageSelectOptionList
 	}
 
-	const htmlSitemapEditorEnsureSelectedPageOption = ( htmlSitemapEditorSelectOptions, pageId, notInListLabel ) => {
-		const htmlSitemapEditorParsedPageId = parseInt( pageId, 10 )
-		if ( ! htmlSitemapEditorParsedPageId ) {
-			return htmlSitemapEditorSelectOptions
+	const tepllHtmlSitemapEditorEnsureSelectedPageOption = ( tepllHtmlSitemapEditorSelectOptions, pageId, notInListLabel ) => {
+		const tepllHtmlSitemapEditorParsedPageId = parseInt( pageId, 10 )
+		if ( ! tepllHtmlSitemapEditorParsedPageId ) {
+			return tepllHtmlSitemapEditorSelectOptions
 		}
-		const htmlSitemapEditorPageIdString = String( htmlSitemapEditorParsedPageId )
-		for ( let htmlSitemapEditorOptionIndex = 0; htmlSitemapEditorOptionIndex < htmlSitemapEditorSelectOptions.length; htmlSitemapEditorOptionIndex++ ) {
-			if ( htmlSitemapEditorSelectOptions[ htmlSitemapEditorOptionIndex ].value === htmlSitemapEditorPageIdString ) {
-				return htmlSitemapEditorSelectOptions
+		const tepllHtmlSitemapEditorPageIdString = String( tepllHtmlSitemapEditorParsedPageId )
+		for ( let tepllHtmlSitemapEditorOptionIndex = 0; tepllHtmlSitemapEditorOptionIndex < tepllHtmlSitemapEditorSelectOptions.length; tepllHtmlSitemapEditorOptionIndex++ ) {
+			if ( tepllHtmlSitemapEditorSelectOptions[ tepllHtmlSitemapEditorOptionIndex ].value === tepllHtmlSitemapEditorPageIdString ) {
+				return tepllHtmlSitemapEditorSelectOptions
 			}
 		}
-		const htmlSitemapEditorExtendedOptions = htmlSitemapEditorSelectOptions.slice()
-		htmlSitemapEditorExtendedOptions.push( { value: htmlSitemapEditorPageIdString, label: notInListLabel + ' (ID ' + htmlSitemapEditorPageIdString + ')' } )
-		return htmlSitemapEditorExtendedOptions
+		const tepllHtmlSitemapEditorExtendedOptions = tepllHtmlSitemapEditorSelectOptions.slice()
+		tepllHtmlSitemapEditorExtendedOptions.push( { value: tepllHtmlSitemapEditorPageIdString, label: notInListLabel + ' (ID ' + tepllHtmlSitemapEditorPageIdString + ')' } )
+		return tepllHtmlSitemapEditorExtendedOptions
 	}
 
 	registerBlockType( 'tepll/html-sitemap', {
@@ -107,33 +107,33 @@
 				: []
 
 			const showListBullets = attributes.show_list_bullets !== false
-			const blogTaxOptions = ( htmlSitemapEditorBlogTaxonomyDefinitions || [] ).map( ( t ) => ( {
+			const blogTaxOptions = ( tepllHtmlSitemapEditorBlogTaxonomyDefinitions || [] ).map( ( t ) => ( {
 				value: t.slug,
 				label: t.label,
 			} ) )
 			if ( blogTaxOptions.length === 0 ) {
 				blogTaxOptions.push( {
 					value: '',
-					label: htmlSitemapEditorI18nStrings.cptNone || '—',
+					label: tepllHtmlSitemapEditorI18nStrings.cptNone || '—',
 				} )
 			}
 			const currentBlogTax = blogTaxonomy
 				? String( blogTaxonomy )
 				: ''
 
-			const htmlSitemapEditorPageListResolution = wp.data.useSelect( ( select ) => {
-				const htmlSitemapEditorCoreDataStore = select( 'core' )
+			const tepllHtmlSitemapEditorPageListResolution = wp.data.useSelect( ( select ) => {
+				const tepllHtmlSitemapEditorCoreDataStore = select( 'core' )
 				return {
-					records: htmlSitemapEditorCoreDataStore.getEntityRecords( 'postType', 'page', htmlSitemapEditorPageListQuery ),
-					resolved: htmlSitemapEditorCoreDataStore.hasFinishedResolution( 'getEntityRecords', [
+					records: tepllHtmlSitemapEditorCoreDataStore.getEntityRecords( 'postType', 'page', tepllHtmlSitemapEditorPageListQuery ),
+					resolved: tepllHtmlSitemapEditorCoreDataStore.hasFinishedResolution( 'getEntityRecords', [
 						'postType',
 						'page',
-						htmlSitemapEditorPageListQuery,
+						tepllHtmlSitemapEditorPageListQuery,
 					] ),
 				}
 			}, [] )
 
-			const initialDefault = htmlSitemapEditorPreviewMode === 'default' || ! ServerSideRender
+			const initialDefault = tepllHtmlSitemapEditorPreviewMode === 'default' || ! ServerSideRender
 
 			const [ previewState, setPreviewState ] = useState( initialDefault ? 'default' : 'preview' )
 
@@ -142,37 +142,37 @@
 				previewStateRef.current = previewState
 			}, [ previewState ] )
 
-			const htmlSitemapEditorPreviewLayoutClassName = previewState === 'default'
+			const tepllHtmlSitemapEditorPreviewLayoutClassName = previewState === 'default'
 				? 'is-default-mode'
 				: 'is-preview-mode'
 
-			const htmlSitemapEditorRootBlockProps = useBlockProps( {
-				className: 'tepll-html-sitemap is-placeholder ' + htmlSitemapEditorPreviewLayoutClassName,
+			const tepllHtmlSitemapEditorRootBlockProps = useBlockProps( {
+				className: 'tepll-html-sitemap is-placeholder ' + tepllHtmlSitemapEditorPreviewLayoutClassName,
 			} )
 
-			const htmlSitemapEditorPageSortSelectOptions = [
-				{ value: 'menu_order', label: htmlSitemapEditorI18nStrings.sortMenuOrder },
-				{ value: 'alphabetical', label: htmlSitemapEditorI18nStrings.sortAlphabetical },
+			const tepllHtmlSitemapEditorPageSortSelectOptions = [
+				{ value: 'menu_order', label: tepllHtmlSitemapEditorI18nStrings.sortMenuOrder },
+				{ value: 'alphabetical', label: tepllHtmlSitemapEditorI18nStrings.sortAlphabetical },
 			]
 
-			const htmlSitemapEditorSetCptRows = ( nextRows ) => {
+			const tepllHtmlSitemapEditorSetCptRows = ( nextRows ) => {
 				setAttributes( { cpt_configs: nextRows } )
 			}
 
-			const htmlSitemapEditorUpdateCptRow = ( slug, patch ) => {
+			const tepllHtmlSitemapEditorUpdateCptRow = ( slug, patch ) => {
 				const rows = cptConfigs.slice()
-				const ix   = htmlSitemapEditorFindRowIndex( rows, slug )
+				const ix   = tepllHtmlSitemapEditorFindRowIndex( rows, slug )
 				if ( ix < 0 ) {
 					return
 				}
 				const merged = Object.assign( {}, rows[ ix ], patch )
 				rows[ ix ] = merged
-				htmlSitemapEditorSetCptRows( rows )
+				tepllHtmlSitemapEditorSetCptRows( rows )
 			}
 
-			const htmlSitemapEditorCptInspectorPanelElements = htmlSitemapEditorPublicCptDefinitions.map( ( def ) => {
+			const tepllHtmlSitemapEditorCptInspectorPanelElements = tepllHtmlSitemapEditorPublicCptDefinitions.map( ( def ) => {
 				const slug = def.slug
-				const ix   = htmlSitemapEditorFindRowIndex( cptConfigs, slug )
+				const ix   = tepllHtmlSitemapEditorFindRowIndex( cptConfigs, slug )
 				const cfg  = ix >= 0
 					? cptConfigs[ ix ]
 					: null
@@ -195,81 +195,81 @@
 						className: 'tepll-html-sitemap-cpt-panel',
 					},
 					el( ToggleControl, {
-						label: htmlSitemapEditorI18nStrings.cptInclude,
+						label: tepllHtmlSitemapEditorI18nStrings.cptInclude,
 						checked: enabled,
 						onChange: ( on ) => {
 							if ( on ) {
 								const rows = cptConfigs.slice()
-								if ( htmlSitemapEditorFindRowIndex( rows, slug ) >= 0 ) {
+								if ( tepllHtmlSitemapEditorFindRowIndex( rows, slug ) >= 0 ) {
 									return
 								}
-								rows.push( htmlSitemapEditorDefaultCptRow( def ) )
-								htmlSitemapEditorSetCptRows( rows )
+								rows.push( tepllHtmlSitemapEditorDefaultCptRow( def ) )
+								tepllHtmlSitemapEditorSetCptRows( rows )
 							} else {
-								htmlSitemapEditorSetCptRows( cptConfigs.filter( ( r ) => r.slug !== slug ) )
+								tepllHtmlSitemapEditorSetCptRows( cptConfigs.filter( ( r ) => r.slug !== slug ) )
 							}
 						},
 					} ),
 					enabled
 						? el( SelectControl, {
-							label: htmlSitemapEditorI18nStrings.cptParentPage,
+							label: tepllHtmlSitemapEditorI18nStrings.cptParentPage,
 							value: String( cfg.parent_page_id != null
 								? cfg.parent_page_id
 								: 0
 							),
-							options: htmlSitemapEditorPageListResolution.resolved
-								? htmlSitemapEditorEnsureSelectedPageOption(
-									htmlSitemapEditorMakePageSelectOptions(
-										{ value: '0', label: htmlSitemapEditorI18nStrings.cptParentNotSet },
-										htmlSitemapEditorPageListResolution.records
+							options: tepllHtmlSitemapEditorPageListResolution.resolved
+								? tepllHtmlSitemapEditorEnsureSelectedPageOption(
+									tepllHtmlSitemapEditorMakePageSelectOptions(
+										{ value: '0', label: tepllHtmlSitemapEditorI18nStrings.cptParentNotSet },
+										tepllHtmlSitemapEditorPageListResolution.records
 									),
 									cfg.parent_page_id,
-									htmlSitemapEditorI18nStrings.pageNotInList
+									tepllHtmlSitemapEditorI18nStrings.pageNotInList
 								)
 								: [
 									{
 										value: String( cfg.parent_page_id != null ? cfg.parent_page_id : 0 ),
-										label: htmlSitemapEditorI18nStrings.pagesLoading,
+										label: tepllHtmlSitemapEditorI18nStrings.pagesLoading,
 									},
 								],
-							disabled: ! htmlSitemapEditorPageListResolution.resolved,
+							disabled: ! tepllHtmlSitemapEditorPageListResolution.resolved,
 							onChange: ( v ) => {
 								const n = parseInt( v, 10 )
-								htmlSitemapEditorUpdateCptRow( slug, { parent_page_id: isNaN( n ) ? 0 : n, } )
+								tepllHtmlSitemapEditorUpdateCptRow( slug, { parent_page_id: isNaN( n ) ? 0 : n, } )
 							},
 						  } )
 						: null,
 					enabled && hasTax
 						? el( SelectControl, {
-							label: htmlSitemapEditorI18nStrings.cptTaxonomy,
+							label: tepllHtmlSitemapEditorI18nStrings.cptTaxonomy,
 							value: currentTax,
 							options: taxOptions,
 							onChange: ( v ) => {
-								htmlSitemapEditorUpdateCptRow( slug, { taxonomy: v } )
+								tepllHtmlSitemapEditorUpdateCptRow( slug, { taxonomy: v } )
 							},
 						  } )
 						: null,
 					enabled && hasTax
 						? el( ToggleControl, {
-							label: htmlSitemapEditorI18nStrings.cptShowTaxonomy,
+							label: tepllHtmlSitemapEditorI18nStrings.cptShowTaxonomy,
 							checked: !! cfg.show_taxonomy,
 							onChange: ( v ) => {
-								htmlSitemapEditorUpdateCptRow( slug, { show_taxonomy: v } )
+								tepllHtmlSitemapEditorUpdateCptRow( slug, { show_taxonomy: v } )
 							},
 						  } )
 						: null,
 					enabled
 						? el( ToggleControl, {
-							label: htmlSitemapEditorI18nStrings.cptShowPosts,
+							label: tepllHtmlSitemapEditorI18nStrings.cptShowPosts,
 							checked: !! cfg.show_posts,
 							onChange: ( v ) => {
-								htmlSitemapEditorUpdateCptRow( slug, { show_posts: v } )
+								tepllHtmlSitemapEditorUpdateCptRow( slug, { show_posts: v } )
 							},
 						  } )
 						: null,
 					enabled
 						? el( TextControl, {
-							label: htmlSitemapEditorI18nStrings.cptMaxDepth,
+							label: tepllHtmlSitemapEditorI18nStrings.cptMaxDepth,
 							type: 'text',
 							value: cfg.max_depth !== undefined && cfg.max_depth !== null && cfg.max_depth !== ''
 								? String( cfg.max_depth )
@@ -280,11 +280,11 @@
 									delete next.max_depth
 									const rows = cptConfigs.slice()
 									rows[ ix ] = next
-									htmlSitemapEditorSetCptRows( rows )
+									tepllHtmlSitemapEditorSetCptRows( rows )
 								} else {
 									const n = parseInt( v, 10 )
 									if ( ! isNaN( n ) ) {
-										htmlSitemapEditorUpdateCptRow( slug, { max_depth: Math.max( 1, n ) } )
+										tepllHtmlSitemapEditorUpdateCptRow( slug, { max_depth: Math.max( 1, n ) } )
 									}
 								}
 							},
@@ -295,37 +295,37 @@
 
 			return el(
 				'div',
-				htmlSitemapEditorRootBlockProps,
+				tepllHtmlSitemapEditorRootBlockProps,
 				el(
 					InspectorControls,
 					null,
 					el(
 						PanelBody,
-						{ title: htmlSitemapEditorI18nStrings.general, initialOpen: true },
+						{ title: tepllHtmlSitemapEditorI18nStrings.general, initialOpen: true },
 						el( ToggleControl, {
-							label: htmlSitemapEditorI18nStrings.hideEmpty,
+							label: tepllHtmlSitemapEditorI18nStrings.hideEmpty,
 							checked: hideEmpty,
 							onChange: ( v ) => {
 								setAttributes( { hide_empty: v } )
 							},
 						} ),
 						el( ToggleControl, {
-							label: htmlSitemapEditorI18nStrings.showListBullets,
+							label: tepllHtmlSitemapEditorI18nStrings.showListBullets,
 							checked: showListBullets,
 							onChange: ( v ) => {
 								setAttributes( { show_list_bullets: v } )
 							},
 						} ),
 						el( SelectControl, {
-							label: htmlSitemapEditorI18nStrings.pageSort,
+							label: tepllHtmlSitemapEditorI18nStrings.pageSort,
 							value: pageSort,
-							options: htmlSitemapEditorPageSortSelectOptions,
+							options: tepllHtmlSitemapEditorPageSortSelectOptions,
 							onChange: ( v ) => {
 								setAttributes( { page_sort: v } )
 							},
 						} ),
 						el( TextControl, {
-							label: htmlSitemapEditorI18nStrings.maxDepth,
+							label: tepllHtmlSitemapEditorI18nStrings.maxDepth,
 							type: 'number',
 							min: 1,
 							value: maxDepth,
@@ -337,9 +337,9 @@
 					),
 					el(
 						PanelBody,
-						{ title: htmlSitemapEditorI18nStrings.blogPanel, initialOpen: true },
+						{ title: tepllHtmlSitemapEditorI18nStrings.blogPanel, initialOpen: true },
 						el( ToggleControl, {
-							label: htmlSitemapEditorI18nStrings.cptInclude,
+							label: tepllHtmlSitemapEditorI18nStrings.cptInclude,
 							checked: blog,
 							onChange: ( v ) => {
 								setAttributes( { blog: v } )
@@ -347,24 +347,24 @@
 						} ),
 						blog
 							? el( SelectControl, {
-								label: htmlSitemapEditorI18nStrings.cptParentPage,
+								label: tepllHtmlSitemapEditorI18nStrings.cptParentPage,
 								value: String( blogParentPageId != null ? blogParentPageId : 0 ),
-								options: htmlSitemapEditorPageListResolution.resolved
-									? htmlSitemapEditorEnsureSelectedPageOption(
-										htmlSitemapEditorMakePageSelectOptions(
-											{ value: '0', label: htmlSitemapEditorI18nStrings.blogPageUseReading },
-											htmlSitemapEditorPageListResolution.records
+								options: tepllHtmlSitemapEditorPageListResolution.resolved
+									? tepllHtmlSitemapEditorEnsureSelectedPageOption(
+										tepllHtmlSitemapEditorMakePageSelectOptions(
+											{ value: '0', label: tepllHtmlSitemapEditorI18nStrings.blogPageUseReading },
+											tepllHtmlSitemapEditorPageListResolution.records
 										),
 										blogParentPageId,
-										htmlSitemapEditorI18nStrings.pageNotInList
+										tepllHtmlSitemapEditorI18nStrings.pageNotInList
 									)
 									: [
 										{
 											value: String( blogParentPageId != null ? blogParentPageId : 0 ),
-											label: htmlSitemapEditorI18nStrings.pagesLoading,
+											label: tepllHtmlSitemapEditorI18nStrings.pagesLoading,
 										},
 									],
-								disabled: ! htmlSitemapEditorPageListResolution.resolved,
+								disabled: ! tepllHtmlSitemapEditorPageListResolution.resolved,
 								onChange: ( v ) => {
 									const n = parseInt( v, 10 )
 									setAttributes( { blog_parent_page_id: isNaN( n ) ? 0 : n } )
@@ -373,7 +373,7 @@
 							: null,
 						blog
 							? el( SelectControl, {
-								label: htmlSitemapEditorI18nStrings.blogTaxonomy,
+								label: tepllHtmlSitemapEditorI18nStrings.blogTaxonomy,
 								value: currentBlogTax,
 								options: blogTaxOptions,
 								onChange: ( v ) => {
@@ -383,7 +383,7 @@
 							: null,
 						blog
 							? el( ToggleControl, {
-								label: htmlSitemapEditorI18nStrings.cptShowTaxonomy,
+								label: tepllHtmlSitemapEditorI18nStrings.cptShowTaxonomy,
 								checked: blogShowTaxonomy,
 								onChange: ( v ) => {
 									setAttributes( { blog_show_taxonomy: v } )
@@ -392,7 +392,7 @@
 							: null,
 						blog
 							? el( ToggleControl, {
-								label: htmlSitemapEditorI18nStrings.cptShowPosts,
+								label: tepllHtmlSitemapEditorI18nStrings.cptShowPosts,
 								checked: blogShowPosts,
 								onChange: ( v ) => {
 									setAttributes( { blog_show_posts: v } )
@@ -401,7 +401,7 @@
 							: null,
 						blog
 							? el( TextControl, {
-								label: htmlSitemapEditorI18nStrings.cptMaxDepth,
+								label: tepllHtmlSitemapEditorI18nStrings.cptMaxDepth,
 								type: 'text',
 								value: blogMaxDepth || '',
 								onChange: ( v ) => {
@@ -412,40 +412,40 @@
 					),
 					el(
 						PanelBody,
-						{ title: htmlSitemapEditorI18nStrings.cptPanel, initialOpen: false },
-						htmlSitemapEditorPublicCptDefinitions.length === 0
-							? el( 'p', { className: 'description' }, htmlSitemapEditorI18nStrings.cptNone )
-							: el( Fragment, null, htmlSitemapEditorCptInspectorPanelElements )
+						{ title: tepllHtmlSitemapEditorI18nStrings.cptPanel, initialOpen: false },
+						tepllHtmlSitemapEditorPublicCptDefinitions.length === 0
+							? el( 'p', { className: 'description' }, tepllHtmlSitemapEditorI18nStrings.cptNone )
+							: el( Fragment, null, tepllHtmlSitemapEditorCptInspectorPanelElements )
 					)
 				),
 				( () => {
-					const htmlSitemapEditorMarkDefaultPreview = () => {
+					const tepllHtmlSitemapEditorMarkDefaultPreview = () => {
 						if ( previewStateRef.current === 'default' ) return
 						setTimeout( () => setPreviewState( 'default' ), 0 )
 					}
 
-					const htmlSitemapEditorRenderPreviewFallback = () => {
-						htmlSitemapEditorMarkDefaultPreview()
+					const tepllHtmlSitemapEditorRenderPreviewFallback = () => {
+						tepllHtmlSitemapEditorMarkDefaultPreview()
 						return el(
 							'div',
 							{ className: 'components-placeholder__label' },
 							el( Dashicon, { icon: 'networking' } ),
-							el( 'span', null, htmlSitemapEditorI18nStrings.placeholderLabel )
+							el( 'span', null, tepllHtmlSitemapEditorI18nStrings.placeholderLabel )
 						)
 					}
 
-					const htmlSitemapEditorRenderPreviewLoadingPlaceholder = () => null
+					const tepllHtmlSitemapEditorRenderPreviewLoadingPlaceholder = () => null
 
 					const content =
-						ServerSideRender && htmlSitemapEditorPreviewMode !== 'default'
+						ServerSideRender && tepllHtmlSitemapEditorPreviewMode !== 'default'
 							? el( ServerSideRender, {
 								block: 'tepll/html-sitemap',
 								attributes: attributes,
-								LoadingResponsePlaceholder: htmlSitemapEditorRenderPreviewLoadingPlaceholder,
-								ErrorResponsePlaceholder: htmlSitemapEditorRenderPreviewFallback,
-								EmptyResponsePlaceholder: htmlSitemapEditorRenderPreviewFallback,
+								LoadingResponsePlaceholder: tepllHtmlSitemapEditorRenderPreviewLoadingPlaceholder,
+								ErrorResponsePlaceholder: tepllHtmlSitemapEditorRenderPreviewFallback,
+								EmptyResponsePlaceholder: tepllHtmlSitemapEditorRenderPreviewFallback,
 							} )
-							: htmlSitemapEditorRenderPreviewFallback()
+							: tepllHtmlSitemapEditorRenderPreviewFallback()
 
 					return el(
 						'div',

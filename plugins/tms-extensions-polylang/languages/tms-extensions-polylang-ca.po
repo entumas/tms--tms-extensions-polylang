@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: TMS Extensions for Polylang\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 15:14+0000\n"
-"PO-Revision-Date: 2026-04-12 18:52+0000\n"
+"PO-Revision-Date: 2026-04-13 13:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
@@ -16,13 +16,13 @@ msgstr ""
 "X-Domain: tms-extensions-polylang"
 
 #. %s: plugin name.
-#: includes/dependencies.php:47
+#: includes/dependencies.php:42
 #, php-format
 msgid "%s requires Polylang to be active before activation."
 msgstr "%s requereix que Polylang estigui actiu abans de l'activació."
 
 #. %s: plugin name.
-#: includes/dependencies.php:178
+#: includes/dependencies.php:167
 #, php-format
 msgid "%s was automatically deactivated because Polylang is not active."
 msgstr "%s s'ha desactivat automàticament perquè Polylang no està actiu."
@@ -59,8 +59,8 @@ msgstr "Mostra o amaga el contingut per idioma seleccionat."
 
 #: includes/blocks/i18n/block-json-strings.php:11
 msgctxt "block title"
-msgid "HTML Sitemap"
-msgstr "Mapa del lloc HTML"
+msgid "HTML Sitemap for Polylang"
+msgstr "Mapa HTML per a Polylang"
 
 #: includes/blocks/i18n/block-json-strings.php:14
 msgctxt "block title"
@@ -77,7 +77,7 @@ msgid "Blog (posts)"
 msgstr "Blog (articles)"
 
 #. %s: current language name or code.
-#: includes/components/pll-language-switcher/get.php:304
+#: includes/components/pll-language-switcher/get.php:301
 #, php-format
 msgid "Choose language. Current: %s"
 msgstr "Tria l'idioma. Actual: %s"
@@ -132,8 +132,8 @@ msgstr "Amaga a l'idioma seleccionat"
 
 #: includes/blocks/html-sitemap/register.php:38
 #: includes/blocks/html-sitemap/register.php:39
-msgid "HTML Sitemap"
-msgstr "Mapa del lloc HTML"
+msgid "HTML Sitemap for Polylang"
+msgstr "Mapa HTML per a Polylang"
 
 #. URI of the plugin
 msgid "https://github.com/entumas/tms--tms-extensions-polylang"
@@ -175,9 +175,9 @@ msgstr "Visibilitat per idioma"
 msgid "Language Visibility content"
 msgstr "Visibilitat del contingut segons l'idioma"
 
-#: includes/components/pll-language-switcher/get.php:62
-#: includes/components/pll-language-switcher/get.php:253
-#: includes/components/pll-language-switcher/get.php:362
+#: includes/components/pll-language-switcher/get.php:61
+#: includes/components/pll-language-switcher/get.php:250
+#: includes/components/pll-language-switcher/get.php:359
 msgid "Languages"
 msgstr "Llengües"
 
@@ -205,7 +205,7 @@ msgstr "Ordre del menú"
 msgid "No public custom post types are registered."
 msgstr "No hi ha cap tipus de contingut personalitzat públic registrat."
 
-#: includes/components/pll-language-switcher/get.php:66
+#: includes/components/pll-language-switcher/get.php:65
 msgid "No translation is available for this page."
 msgstr "No hi ha traducció disponible per a aquesta pàgina."
 
@@ -279,7 +279,7 @@ msgstr "TMS Extensions per a Polylang"
 msgid "Tumàs Muntané"
 msgstr "Tumàs Muntané"
 
-#: includes/dependencies.php:50
+#: includes/dependencies.php:45
 msgid "Unmet dependency"
 msgstr "Dependència no satisfeta"
 
@@ -292,7 +292,7 @@ msgid "Visibility mode"
 msgstr "Mode de visibilitat"
 
 #. %s: plugin name.
-#: includes/dependencies.php:165
+#: includes/dependencies.php:154
 #, php-format
 msgid "You cannot deactivate Polylang while %s is active."
 msgstr "No podeu desactivar Polylang mentre %s estigui actiu."

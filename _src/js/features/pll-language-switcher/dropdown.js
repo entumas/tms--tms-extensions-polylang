@@ -3,150 +3,150 @@
 // --------------------------------------------------
 
 
-( ( languageSwitcherDropdownRoot ) => {
+( ( tepllLanguageSwitcherDropdownRoot ) => {
 	'use strict'
 
-	const languageSwitcherDropdownRootDocument         = languageSwitcherDropdownRoot.document
-	const languageSwitcherDropdownInitDatasetKey    = 'tepllLanguageSwitcherDropdownInit'
-	const languageSwitcherDropdownObserverStartedWindowKey = '__tepllLanguageSwitcherDropdownObserverStarted'
+	const tepllLanguageSwitcherDropdownRootDocument             = tepllLanguageSwitcherDropdownRoot.document
+	const tepllLanguageSwitcherDropdownInitDatasetKey           = 'tepllLanguageSwitcherDropdownInit'
+	const tepllLanguageSwitcherDropdownObserverStartedWindowKey = '__tepllLanguageSwitcherDropdownObserverStarted'
 
-	let languageSwitcherDropdownActiveWrapper = null
-	let languageSwitcherDropdownGlobalHandlersBound = false
+	let tepllLanguageSwitcherDropdownActiveWrapper       = null
+	let tepllLanguageSwitcherDropdownGlobalHandlersBound = false
 
-	const languageSwitcherDropdownGetParts = ( wrapper ) => {
+	const tepllLanguageSwitcherDropdownGetParts = ( wrapper ) => {
 		if ( ! wrapper || ! wrapper.querySelector ) return null
-		const languageSwitcherDropdownToggleButton = wrapper.querySelector( '.tepll-pll-language-switcher-toggle' )
-		const languageSwitcherDropdownPanel = wrapper.querySelector( '.tepll-pll-language-switcher-dropdown' )
-		if ( ! languageSwitcherDropdownToggleButton || ! languageSwitcherDropdownPanel ) return null
-		return { btn: languageSwitcherDropdownToggleButton, dropdown: languageSwitcherDropdownPanel }
+		const tepllLanguageSwitcherDropdownToggleButton = wrapper.querySelector( '.tepll-pll-language-switcher-toggle' )
+		const tepllLanguageSwitcherDropdownPanel = wrapper.querySelector( '.tepll-pll-language-switcher-dropdown' )
+		if ( ! tepllLanguageSwitcherDropdownToggleButton || ! tepllLanguageSwitcherDropdownPanel ) return null
+		return { btn: tepllLanguageSwitcherDropdownToggleButton, dropdown: tepllLanguageSwitcherDropdownPanel }
 	}
 
-	const languageSwitcherDropdownCloseWrapper = ( wrapper ) => {
-		const languageSwitcherDropdownToggleAndPanel = languageSwitcherDropdownGetParts( wrapper )
-		if ( ! languageSwitcherDropdownToggleAndPanel ) return
+	const tepllLanguageSwitcherDropdownCloseWrapper = ( wrapper ) => {
+		const tepllLanguageSwitcherDropdownToggleAndPanel = tepllLanguageSwitcherDropdownGetParts( wrapper )
+		if ( ! tepllLanguageSwitcherDropdownToggleAndPanel ) return
 
-		languageSwitcherDropdownToggleAndPanel.btn.setAttribute( 'aria-expanded', 'false' )
-		languageSwitcherDropdownToggleAndPanel.dropdown.classList.remove( 'is-open' )
-		languageSwitcherDropdownToggleAndPanel.dropdown.setAttribute( 'aria-hidden', 'true' )
+		tepllLanguageSwitcherDropdownToggleAndPanel.btn.setAttribute( 'aria-expanded', 'false' )
+		tepllLanguageSwitcherDropdownToggleAndPanel.dropdown.classList.remove( 'is-open' )
+		tepllLanguageSwitcherDropdownToggleAndPanel.dropdown.setAttribute( 'aria-hidden', 'true' )
 	}
 
-	const languageSwitcherDropdownOpenWrapper = ( wrapper ) => {
-		const languageSwitcherDropdownToggleAndPanel = languageSwitcherDropdownGetParts( wrapper )
-		if ( ! languageSwitcherDropdownToggleAndPanel ) return
+	const tepllLanguageSwitcherDropdownOpenWrapper = ( wrapper ) => {
+		const tepllLanguageSwitcherDropdownToggleAndPanel = tepllLanguageSwitcherDropdownGetParts( wrapper )
+		if ( ! tepllLanguageSwitcherDropdownToggleAndPanel ) return
 
-		languageSwitcherDropdownToggleAndPanel.btn.setAttribute( 'aria-expanded', 'true' )
-		languageSwitcherDropdownToggleAndPanel.dropdown.classList.add( 'is-open' )
-		languageSwitcherDropdownToggleAndPanel.dropdown.setAttribute( 'aria-hidden', 'false' )
+		tepllLanguageSwitcherDropdownToggleAndPanel.btn.setAttribute( 'aria-expanded', 'true' )
+		tepllLanguageSwitcherDropdownToggleAndPanel.dropdown.classList.add( 'is-open' )
+		tepllLanguageSwitcherDropdownToggleAndPanel.dropdown.setAttribute( 'aria-hidden', 'false' )
 	}
 
-	const languageSwitcherDropdownBindGlobalHandlers = () => {
-		if ( languageSwitcherDropdownGlobalHandlersBound || ! languageSwitcherDropdownRootDocument ) return
-		languageSwitcherDropdownGlobalHandlersBound = true
+	const tepllLanguageSwitcherDropdownBindGlobalHandlers = () => {
+		if ( tepllLanguageSwitcherDropdownGlobalHandlersBound || ! tepllLanguageSwitcherDropdownRootDocument ) return
+		tepllLanguageSwitcherDropdownGlobalHandlersBound = true
 
-		languageSwitcherDropdownRootDocument.addEventListener(
+		tepllLanguageSwitcherDropdownRootDocument.addEventListener(
 			'click',
 			( clickEvent ) => {
-				if ( ! languageSwitcherDropdownActiveWrapper ) return
-				if ( languageSwitcherDropdownActiveWrapper.contains && languageSwitcherDropdownActiveWrapper.contains( clickEvent.target ) ) return
+				if ( ! tepllLanguageSwitcherDropdownActiveWrapper ) return
+				if ( tepllLanguageSwitcherDropdownActiveWrapper.contains && tepllLanguageSwitcherDropdownActiveWrapper.contains( clickEvent.target ) ) return
 
-				languageSwitcherDropdownCloseWrapper( languageSwitcherDropdownActiveWrapper )
-				languageSwitcherDropdownActiveWrapper = null
+				tepllLanguageSwitcherDropdownCloseWrapper( tepllLanguageSwitcherDropdownActiveWrapper )
+				tepllLanguageSwitcherDropdownActiveWrapper = null
 			},
 			true
 		)
 
-		languageSwitcherDropdownRootDocument.addEventListener(
+		tepllLanguageSwitcherDropdownRootDocument.addEventListener(
 			'keydown',
 			( keyEvent ) => {
 				if ( keyEvent.key !== 'Escape' ) return
-				if ( ! languageSwitcherDropdownActiveWrapper ) return
+				if ( ! tepllLanguageSwitcherDropdownActiveWrapper ) return
 
-				const languageSwitcherDropdownToggleAndPanel = languageSwitcherDropdownGetParts( languageSwitcherDropdownActiveWrapper )
-				languageSwitcherDropdownCloseWrapper( languageSwitcherDropdownActiveWrapper )
-				languageSwitcherDropdownActiveWrapper = null
+				const tepllLanguageSwitcherDropdownToggleAndPanel = tepllLanguageSwitcherDropdownGetParts( tepllLanguageSwitcherDropdownActiveWrapper )
+				tepllLanguageSwitcherDropdownCloseWrapper( tepllLanguageSwitcherDropdownActiveWrapper )
+				tepllLanguageSwitcherDropdownActiveWrapper = null
 
-				if ( languageSwitcherDropdownToggleAndPanel && languageSwitcherDropdownToggleAndPanel.btn && languageSwitcherDropdownToggleAndPanel.btn.focus ) {
-					languageSwitcherDropdownToggleAndPanel.btn.focus()
+				if ( tepllLanguageSwitcherDropdownToggleAndPanel && tepllLanguageSwitcherDropdownToggleAndPanel.btn && tepllLanguageSwitcherDropdownToggleAndPanel.btn.focus ) {
+					tepllLanguageSwitcherDropdownToggleAndPanel.btn.focus()
 				}
 			},
 			true
 		)
 	}
 
-	const languageSwitcherDropdownInitWithin = ( contextRoot ) => {
-		const languageSwitcherDropdownQueryContext = contextRoot && contextRoot.querySelectorAll
+	const tepllLanguageSwitcherDropdownInitWithin = ( contextRoot ) => {
+		const tepllLanguageSwitcherDropdownQueryContext = contextRoot && contextRoot.querySelectorAll
 			? contextRoot
-			: languageSwitcherDropdownRootDocument
-		if ( ! languageSwitcherDropdownQueryContext || ! languageSwitcherDropdownQueryContext.querySelectorAll ) return
+			: tepllLanguageSwitcherDropdownRootDocument
+		if ( ! tepllLanguageSwitcherDropdownQueryContext || ! tepllLanguageSwitcherDropdownQueryContext.querySelectorAll ) return
 
-		const languageSwitcherDropdownWrappers = languageSwitcherDropdownQueryContext.querySelectorAll(
+		const tepllLanguageSwitcherDropdownWrappers = tepllLanguageSwitcherDropdownQueryContext.querySelectorAll(
 			'.tepll-pll-language-switcher.is-dropdown'
 		)
-		if ( ! languageSwitcherDropdownWrappers || ! languageSwitcherDropdownWrappers.length ) return
+		if ( ! tepllLanguageSwitcherDropdownWrappers || ! tepllLanguageSwitcherDropdownWrappers.length ) return
 
-		languageSwitcherDropdownWrappers.forEach( ( wrapper ) => {
-			if ( wrapper.dataset && wrapper.dataset[ languageSwitcherDropdownInitDatasetKey ] === '1' ) return
+		tepllLanguageSwitcherDropdownWrappers.forEach( ( wrapper ) => {
+			if ( wrapper.dataset && wrapper.dataset[ tepllLanguageSwitcherDropdownInitDatasetKey ] === '1' ) return
 
-			const languageSwitcherDropdownToggleAndPanel = languageSwitcherDropdownGetParts( wrapper )
-			if ( ! languageSwitcherDropdownToggleAndPanel ) return
+			const tepllLanguageSwitcherDropdownToggleAndPanel = tepllLanguageSwitcherDropdownGetParts( wrapper )
+			if ( ! tepllLanguageSwitcherDropdownToggleAndPanel ) return
 
 			if ( wrapper.dataset ) {
-				wrapper.dataset[ languageSwitcherDropdownInitDatasetKey ] = '1'
+				wrapper.dataset[ tepllLanguageSwitcherDropdownInitDatasetKey ] = '1'
 			}
 
-			languageSwitcherDropdownToggleAndPanel.btn.addEventListener( 'click', ( clickEvent ) => {
+			tepllLanguageSwitcherDropdownToggleAndPanel.btn.addEventListener( 'click', ( clickEvent ) => {
 				clickEvent.stopPropagation()
 
-				const languageSwitcherDropdownIsOpen =
-					wrapper === languageSwitcherDropdownActiveWrapper &&
-					languageSwitcherDropdownToggleAndPanel.dropdown.classList.contains( 'is-open' )
+				const tepllLanguageSwitcherDropdownIsOpen =
+					wrapper === tepllLanguageSwitcherDropdownActiveWrapper &&
+					tepllLanguageSwitcherDropdownToggleAndPanel.dropdown.classList.contains( 'is-open' )
 
-				if ( languageSwitcherDropdownIsOpen ) {
-					languageSwitcherDropdownCloseWrapper( wrapper )
-					languageSwitcherDropdownActiveWrapper = null
+				if ( tepllLanguageSwitcherDropdownIsOpen ) {
+					tepllLanguageSwitcherDropdownCloseWrapper( wrapper )
+					tepllLanguageSwitcherDropdownActiveWrapper = null
 					return
 				}
 
-				if ( languageSwitcherDropdownActiveWrapper && languageSwitcherDropdownActiveWrapper !== wrapper ) {
-					languageSwitcherDropdownCloseWrapper( languageSwitcherDropdownActiveWrapper )
+				if ( tepllLanguageSwitcherDropdownActiveWrapper && tepllLanguageSwitcherDropdownActiveWrapper !== wrapper ) {
+					tepllLanguageSwitcherDropdownCloseWrapper( tepllLanguageSwitcherDropdownActiveWrapper )
 				}
 
-				languageSwitcherDropdownOpenWrapper( wrapper )
-				languageSwitcherDropdownActiveWrapper = wrapper
+				tepllLanguageSwitcherDropdownOpenWrapper( wrapper )
+				tepllLanguageSwitcherDropdownActiveWrapper = wrapper
 			} )
 		} )
 	}
 
-	const languageSwitcherDropdownStartObserver = () => {
-		if ( ! languageSwitcherDropdownRootDocument || ! ( 'MutationObserver' in languageSwitcherDropdownRoot ) ) return
-		if ( languageSwitcherDropdownRoot[ languageSwitcherDropdownObserverStartedWindowKey ] ) return
-		languageSwitcherDropdownRoot[ languageSwitcherDropdownObserverStartedWindowKey ] = true
+	const tepllLanguageSwitcherDropdownStartObserver = () => {
+		if ( ! tepllLanguageSwitcherDropdownRootDocument || ! ( 'MutationObserver' in tepllLanguageSwitcherDropdownRoot ) ) return
+		if ( tepllLanguageSwitcherDropdownRoot[ tepllLanguageSwitcherDropdownObserverStartedWindowKey ] ) return
+		tepllLanguageSwitcherDropdownRoot[ tepllLanguageSwitcherDropdownObserverStartedWindowKey ] = true
 
-		let languageSwitcherDropdownObserverScheduled = false
-		const languageSwitcherDropdownDomObserver = new MutationObserver( () => {
-			if ( languageSwitcherDropdownObserverScheduled ) return
-			languageSwitcherDropdownObserverScheduled = true
+		let tepllLanguageSwitcherDropdownObserverScheduled = false
+		const tepllLanguageSwitcherDropdownDomObserver = new MutationObserver( () => {
+			if ( tepllLanguageSwitcherDropdownObserverScheduled ) return
+			tepllLanguageSwitcherDropdownObserverScheduled = true
 
 			setTimeout( () => {
-				languageSwitcherDropdownObserverScheduled = false
-				languageSwitcherDropdownInitWithin( languageSwitcherDropdownRootDocument )
+				tepllLanguageSwitcherDropdownObserverScheduled = false
+				tepllLanguageSwitcherDropdownInitWithin( tepllLanguageSwitcherDropdownRootDocument )
 			}, 50 )
 		} )
 
-		languageSwitcherDropdownDomObserver.observe( languageSwitcherDropdownRootDocument.documentElement, { childList: true, subtree: true } )
+		tepllLanguageSwitcherDropdownDomObserver.observe( tepllLanguageSwitcherDropdownRootDocument.documentElement, { childList: true, subtree: true } )
 	}
 
-	languageSwitcherDropdownRoot.tepllLanguageSwitcherInitDropdown = ( contextRoot ) => {
-		languageSwitcherDropdownBindGlobalHandlers()
-		languageSwitcherDropdownInitWithin( contextRoot )
-		languageSwitcherDropdownStartObserver()
+	tepllLanguageSwitcherDropdownRoot.tepllLanguageSwitcherInitDropdown = ( contextRoot ) => {
+		tepllLanguageSwitcherDropdownBindGlobalHandlers()
+		tepllLanguageSwitcherDropdownInitWithin( contextRoot )
+		tepllLanguageSwitcherDropdownStartObserver()
 	}
 
-	if ( languageSwitcherDropdownRootDocument ) {
-		if ( languageSwitcherDropdownRootDocument.readyState === 'loading' ) {
-			languageSwitcherDropdownRootDocument.addEventListener( 'DOMContentLoaded', () => languageSwitcherDropdownRoot.tepllLanguageSwitcherInitDropdown() )
+	if ( tepllLanguageSwitcherDropdownRootDocument ) {
+		if ( tepllLanguageSwitcherDropdownRootDocument.readyState === 'loading' ) {
+			tepllLanguageSwitcherDropdownRootDocument.addEventListener( 'DOMContentLoaded', () => tepllLanguageSwitcherDropdownRoot.tepllLanguageSwitcherInitDropdown() )
 		} else {
-			languageSwitcherDropdownRoot.tepllLanguageSwitcherInitDropdown()
+			tepllLanguageSwitcherDropdownRoot.tepllLanguageSwitcherInitDropdown()
 		}
 	}
 } )( window )
