@@ -17,4 +17,8 @@ if ( false ) :
 	_x( 'Language Visibility', 'block title', 'tms-extensions-polylang' );
 	_x( 'Show or hide content by selected language.', 'block description', 'tms-extensions-polylang' );
 
+	_x( 'Menu by Language', 'block title', 'tms-extensions-polylang' );
+	_x( 'Shows a different site Navigation menu for each Polylang language (wp_navigation). Not a language switcher.', 'block description', 'tms-extensions-polylang' );
+	_x( 'Menu by Language Slot', 'block title', 'tms-extensions-polylang' );
+
 endif;

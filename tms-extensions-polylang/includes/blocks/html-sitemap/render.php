@@ -1,19 +1,17 @@
 <?php
 /**
- * Blocks -> Sitemap -> Render
+ * Includes -> Blocks -> Html sitemap -> Render
  *
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-
-if ( ! function_exists( 'tepll_html_sitemap_get_html' ) || ! function_exists( 'tepll_html_sitemap_args_from_block_attributes' ) ) return '';
 
 $tepll_html_sitemap_block_attributes = isset( $attributes ) && is_array( $attributes )
 	? $attributes
 	: array();
 
 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup from tepll_html_sitemap_get_html() uses esc_url/esc_html internally.
-$tepll_html_sitemap_markup = tepll_html_sitemap_get_html( tepll_html_sitemap_args_from_block_attributes( $tepll_html_sitemap_block_attributes ) );
+$tepll_html_sitemap_markup = tepll_html_sitemap_get_html( tepll_html_sitemap_get_args_from_block_attributes( $tepll_html_sitemap_block_attributes ) );
 
 $tepll_html_sitemap_block_instance = ( isset( $block ) && $block instanceof WP_Block )
 	? $block

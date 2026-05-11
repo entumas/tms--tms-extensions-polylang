@@ -1,0 +1,132 @@
+---
+description: TEPLL — Reglas generales, seguridad WordPress y flujo de refactors (siempre)
+alwaysApply: true
+---
+
+# Reglas compactas del proyecto
+
+Estas reglas tienen prioridad sobre convenciones genéricas. Si una instrucción del modelo entra en conflicto con ellas, deben prevalecer estas reglas del proyecto.
+
+---
+
+# 1. Reglas generales
+
+## Prioridades
+
+- Priorizar claridad, seguridad, mantenibilidad y rendimiento.
+- Mantener el estilo existente del proyecto cuando no contradiga estas reglas.
+- No reescribir código no relacionado con la tarea.
+- No reformatear archivos completos salvo que se pida explícitamente.
+- Separar lógica de negocio, presentación, estilos y scripts.
+- Preferir funciones pequeñas, reutilizables y con una única responsabilidad.
+- Evitar duplicar código. Si algo se repite más de dos veces, valorar extraerlo a función, helper, mixin o utilidad.
+- Usar comentarios solo cuando aporten contexto real, especialmente el “por qué”.
+- Los comentarios deben estar siempre en inglés.
+
+## Formato general
+
+- Usar tabulaciones para indentar, respetando el estilo existente.
+- Usar early returns o guard clauses para evitar anidación profunda.
+- Las validaciones simples pueden ir en una sola línea si son legibles:
+  - `if ( ! $slug ) return $slug;`
+- Usar ternarios en multilínea cuando mejoren la legibilidad.
+- Dejar dos saltos de línea entre bloques principales de funciones.
+- En interfaz de usuario, priorizar HTML semántico, accesibilidad, navegación por teclado y WCAG.
+
+## Naming general
+
+- Prefijo base del proyecto: `tepll`.
+- En PHP, el prefijo de funciones globales es `tepll_`.
+- En JS, el prefijo de funciones públicas o inicializadoras es `tepll` en camelCase.
+- En constantes y clases PHP, usar `TEPLL` cuando aplique.
+- Los nombres deben ser descriptivos y evitar abreviaturas crípticas.
+- Evitar nombres vagos como `handle`, `process`, `do`, `data`, `item`, `thing`, `helper` o `manager`, salvo que el contexto lo justifique claramente.
+- Estructura recomendada para funciones PHP:
+  - `tepll_{funcionalidad}_{verbo}_{complemento}`
+  - Ejemplos:
+    - `tepll_player_benefits_get_price`
+    - `tepll_wc_cart_has_product`
+    - `tepll_blocks_register_assets`
+
+## Coherencia entre PHP y JavaScript
+
+Cuando una funcionalidad, componente o bloque Gutenberg tenga parte PHP y parte JS:
+
+- Mantener nombres semánticamente equivalentes entre capas.
+- No usar nombres distintos para el mismo concepto.
+- La equivalencia debe respetar la convención de cada lenguaje.
+
+Ejemplo:
+
+```php
+tepll_player_card_render()
+```
+
+```js
+tepllPlayerCardRender()
+```
+
+---
+
+# 7. Seguridad WordPress
+
+No renombrar salvo petición explícita:
+
+- hooks de WordPress.
+- nombres de actions.
+- nombres de filters.
+- AJAX actions.
+- REST routes.
+- shortcodes.
+- option keys.
+- meta keys.
+- ACF field names.
+- ACF field keys.
+- text domains.
+- tablas de base de datos.
+- columnas de base de datos.
+- APIs públicas usadas fuera del archivo actual.
+
+Si algo parece inconsistente pero puede pertenecer a esta lista, reportarlo como riesgo en vez de modificarlo.
+
+---
+
+# 8. Flujo obligatorio para refactors
+
+Antes de aplicar cambios amplios:
+
+1. Analizar la carpeta, módulo o bloque indicado.
+2. Detectar el patrón existente.
+3. Detectar inconsistencias.
+4. Proponer cambios.
+5. Clasificar cada cambio como:
+   - SAFE
+   - RISKY
+   - DO NOT CHANGE
+6. Aplicar solo cambios SAFE, salvo instrucción explícita.
+
+En refactors de naming:
+
+- No cambiar nombres por estética.
+- Cambiar solo si mejora coherencia, claridad o alineación con el patrón.
+- Mantener referencias actualizadas.
+- Verificar llamadas cruzadas entre PHP y JS.
+- Revisar imports/exports.
+- Revisar hooks, callbacks y registros.
+- No dejar cambios a medias.
+
+---
+
+# 9. Si hay duda
+
+Si el nombre correcto no está claro:
+
+- No adivinar.
+- Proponer 2 o 3 opciones.
+- Explicar brevemente la diferencia.
+- Esperar confirmación antes de renombrar.
+
+Si una instrucción es demasiado amplia:
+
+- Dividir por carpeta, módulo o bloque.
+- No intentar refactorizar todo el proyecto de golpe.

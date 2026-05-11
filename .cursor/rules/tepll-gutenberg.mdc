@@ -1,0 +1,28 @@
+---
+description: TEPLL — Bloques Gutenberg (registro, render y assets en el plugin)
+globs: "tms-extensions-polylang/includes/blocks/**/*"
+alwaysApply: false
+---
+
+# 6. Gutenberg / bloques
+
+- Si el proyecto incluye bloques Gutenberg, cada bloque debe vivir en su propia carpeta con su slug.
+- Cada bloque debe agrupar sus archivos JS y SCSS/CSS.
+- Mantener coherencia semántica entre:
+  - JS del bloque.
+  - PHP de renderizado.
+  - nombres de funciones.
+  - nombres de archivos.
+  - slug del bloque.
+- No separar nombres equivalentes entre PHP y JS.
+- Si una función JS representa la misma responsabilidad que una función PHP, usar el mismo concepto adaptado a cada convención.
+
+Ejemplo:
+
+```php
+tepll_testimonial_card_render()
+```
+
+```js
+tepllTestimonialCardRender()
+```

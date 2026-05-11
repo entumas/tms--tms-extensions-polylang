@@ -1,0 +1,17 @@
+{
+	"apiVersion": 3,
+	"name": "tepll/pll-menu-by-language",
+	"title": "Menu by Language",
+	"description": "Shows a different site Navigation menu for each Polylang language (wp_navigation). Not a language switcher.",
+	"category": "tms-blocks",
+	"keywords": [ "menu", "navigation", "polylang", "language", "multilingual", "appearance" ],
+	"version": "1.0.1",
+	"textdomain": "tms-extensions-polylang",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"editorScript": "tepll-pll-menu-by-language-editor",
+	"editorStyle": "tepll-pll-menu-by-language-editor",
+	"render": "file:./render.php"
+}

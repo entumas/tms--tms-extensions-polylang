@@ -5,10 +5,11 @@
 
 // Init ========================================
 
-// Tools
-@import "../../scss/tools/block-wrapper-base.scss";
+@import "../../scss/tools/functions";
+@import "../../scss/settings/colors";
+@import "../../scss/tools/mixins";
 
 
-// Partials ========================================
+// Block ========================================
 
-@import "../../scss/components/html-sitemap.scss";
+@import "../../scss/blocks/html-sitemap.scss";

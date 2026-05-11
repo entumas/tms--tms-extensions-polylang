@@ -1,13 +1,9 @@
 <?php
 /**
- * Blocks -> Pll Language Switcher -> Render
+ * Includes -> Blocks -> Pll language switcher -> Render
  *
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
-
-
-if ( ! function_exists( 'tepll_language_switcher_get_html' ) ) return '';
-require_once dirname( __DIR__, 2 ) . '/components/pll-language-switcher/dropdown-wrapper-split.php';
 
 
 $tepll_language_switcher_block_instance = ( isset( $block ) && $block instanceof WP_Block )
@@ -71,7 +67,7 @@ $tepll_language_switcher_dropdown_ul_style = $tepll_language_switcher_is_dropdow
 $tepll_language_switcher_clickable_surface_class = (string) $tepll_language_switcher_wrapper_split['clickable']['class'];
 $tepll_language_switcher_clickable_surface_style = (string) $tepll_language_switcher_wrapper_split['clickable']['style'];
 
-// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Inner HTML escaped in get.php.
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Inner markup escaped in `tepll_language_switcher_get_html()`
 $tepll_language_switcher_markup = tepll_language_switcher_get_html(
 	array(
 		'display'                 => $tepll_language_switcher_display_mode,

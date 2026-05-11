@@ -1,13 +1,13 @@
 <?php
 /**
- * Blocks -> Pll Language Switcher -> Register
+ * Includes -> Blocks -> Pll language switcher -> Register
  *
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 $tepll_language_switcher_block_directory = __DIR__;
-$tepll_language_switcher_block_url = plugin_dir_url( __FILE__ );
+$tepll_language_switcher_block_url       = plugin_dir_url( __FILE__ );
 
 // Editor assets
 wp_register_style(

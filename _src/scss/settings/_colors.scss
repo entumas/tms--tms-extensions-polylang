@@ -3,12 +3,67 @@
 // --------------------------------------------------
 
 
-$color--black		: #1e1e1e;
-$color--white		: #ffffff;
-$color--border		: #00000022;
-$color--success		: #00a32a;
-$color--success-bg	: #edfaef;
-$color--error		: #d63638;
-$color--error-bg	: #fcf0f1;
-$color--warning		: #dba617;
-$color--warning-bg	: #fcf9e8;
+// Variables ========================================
+
+$color--black				: #000;
+$color--white				: #fff;
+$color--accent				: #3858e9;
+$color--accent-darker-10	: #2145e6;
+$color--accent-darker-20	: #183ad6;
+$color--foreground			: #1e1e1e;
+$color--gray-100			: #f0f0f0;
+$color--gray-200			: #e0e0e0;
+$color--gray-300			: #ddd;
+$color--gray-400			: #ccc;
+$color--gray-600			: #949494;
+$color--gray-700			: #757575;
+$color--gray-800			: #2f2f2f;
+$color--wp-classic-accent	: #2271b1;
+$color--border-muted		: #8c8f94;
+$color--disabled-muted		: #c3c4c7;
+$color--accent-inverted		: $color--white;
+$color--background			: $color--white;
+$color--foreground-inverted	: $color--white;
+$color--border				: $color--gray-600;
+$color--disabled			: $color--gray-600;
+$color--border-light		: $color--gray-200;
+$color--success				: #00a32a;
+$color--success-bg			: #edfaef;
+$color--error				: #d63638;
+$color--error-bg			: #fcf0f1;
+$color--warning				: #dba617;
+$color--warning-bg			: #fcf9e8;
+
+
+// Map ========================================
+
+$colors: (
+	'black'					: $color--black,
+	'white'					: $color--white,
+	'accent'				: $color--accent,
+	'accent-darker-10'		: $color--accent-darker-10,
+	'accent-darker-20'		: $color--accent-darker-20,
+	'foreground'			: $color--foreground,
+	'gray-100'				: $color--gray-100,
+	'gray-200'				: $color--gray-200,
+	'gray-300'				: $color--gray-300,
+	'gray-400'				: $color--gray-400,
+	'gray-600'				: $color--gray-600,
+	'gray-700'				: $color--gray-700,
+	'gray-800'				: $color--gray-800,
+	'wp-classic-accent'		: $color--wp-classic-accent,
+	'border-muted'			: $color--border-muted,
+	'disabled-muted'		: $color--disabled-muted,
+	'accent-inverted'		: $color--accent-inverted,
+	'background'			: $color--background,
+	'foreground-inverted'	: $color--foreground-inverted,
+	'border'				: $color--border,
+	'disabled'				: $color--disabled,
+	'border-light'			: $color--border-light,
+	'success'				: $color--success,
+	'success-bg'			: $color--success-bg,
+	'error'					: $color--error,
+	'error-bg'				: $color--error-bg,
+	'warning'				: $color--warning,
+	'warning-bg'			: $color--warning-bg,
+);

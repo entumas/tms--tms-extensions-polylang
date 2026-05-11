@@ -54,7 +54,6 @@
 					icon: tepllLanguageVisibilityEditorSanitizedMode === 'show_if'
 						? 'visibility'
 						: 'hidden',
-					style: { fontSize: '16px', verticalAlign: 'middle', marginRight: '6px' },
 				} ),
 				wp.element.createElement( 'span', null, tepllLanguageVisibilityEditorBadgeLangCode )
 			)

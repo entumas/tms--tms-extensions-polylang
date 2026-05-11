@@ -24,6 +24,17 @@ function tepll_plugin_get_name() : string {
 
 
 /**
+ * File modification time for a path under the plugin directory, or plugin version if missing
+ */
+function tepll_plugin_get_asset_file_mtime( string $relative ): int {
+	$path = TEPLL_PLUGIN_PATH . $relative;
+	return file_exists( $path )
+		? (int) filemtime( $path )
+		: (int) TEPLL_PLUGIN_VERSION;
+}
+
+
+/**
  * Safely require a file from /includes relative path
  */
 

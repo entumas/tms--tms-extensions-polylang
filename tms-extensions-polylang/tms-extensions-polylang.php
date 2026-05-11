@@ -3,7 +3,7 @@
  * Plugin Name:       TMS Extensions for Polylang
  * Plugin URI:        https://wordpress.org/plugins/tms-extensions-polylang
  * Description:       Extends Polylang with reusable multilingual tools for block-based sites.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Tumàs Muntané
  * Author URI:        https://tumasmuntane.com/
  * Text Domain:       tms-extensions-polylang
@@ -27,7 +27,7 @@ define( 'TEPLL_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 
 if ( ! function_exists( 'get_plugin_data' ) ) require_once ABSPATH . 'wp-admin/includes/plugin.php';
 $tepll_plugin_metadata = get_plugin_data( TEPLL_PLUGIN_FILE, false, false );
-define( 'TEPLL_PLUGIN_VERSION', $tepll_plugin_metadata['Version'] ?? '1.0.2' );
+define( 'TEPLL_PLUGIN_VERSION', $tepll_plugin_metadata['Version'] ?? '1.1.0' );
 
 
 // Early includes ========================================
@@ -37,6 +37,9 @@ require_once TEPLL_PLUGIN_PATH . 'includes/dependencies.php';
 
 // i18n (text domain)
 require_once TEPLL_PLUGIN_PATH . 'includes/i18n.php';
+
+// Backend enqueue
+require_once TEPLL_PLUGIN_PATH . 'includes/admin-enqueue.php';
 
 // Utilities (safe include helper)
 require_once TEPLL_PLUGIN_PATH . 'includes/utilities.php';

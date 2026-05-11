@@ -1,0 +1,85 @@
+---
+description: TEPLL — Convenciones JavaScript (plugin TMS Extensions)
+globs: "tms-extensions-polylang/**/*.js"
+alwaysApply: false
+---
+
+# 3. JavaScript
+
+## Naming JS
+
+- Variables y funciones internas en `camelCase`.
+  - Ejemplos:
+    - `triggerSelector`
+    - `scrollUnlockDelay`
+    - `closeModal`
+- Funciones principales, públicas o inicializadoras con prefijo `tepll` en `camelCase`.
+  - Ejemplos:
+    - `tepllCollapse`
+    - `tepllSideNav`
+    - `tepllModals`
+    - `tepllObfuscateLinks`
+- Constantes inmutables o de configuración en `UPPER_SNAKE_CASE` solo cuando tenga sentido.
+
+## Sintaxis JS
+
+- Usar JavaScript moderno.
+- No usar jQuery.
+- Usar Vanilla JS.
+- Usar `const` por defecto.
+- Usar `let` solo cuando el valor vaya a reasignarse.
+- No usar `var`.
+- No usar `;` al final de las sentencias en código nuevo.
+- Usar comillas simples.
+- Preferir `async/await` sobre `.then().catch().finally()`.
+- Usar ES modules con `import`, `export` y `export default`.
+
+## Organización JS
+
+- `_src/js/scripts.js` es el punto de entrada del front.
+- `scripts.js` debe agrupar imports y delegar la lógica en módulos.
+- No mezclar lógica de negocio dentro de `scripts.js`.
+- Usar un único `init()` para comprobar el DOM y ejecutar solo los módulos necesarios.
+- Usar `afterInit()` para lógica posterior al init cuando aplique.
+- Arrancar con:
+  - `window.addEventListener( 'load', () => { init(); afterInit(); } )`
+- Orden recomendado en `scripts.js`:
+  1. imports de `libs`
+  2. imports de `functionalities`
+  3. bootstrap (`init`, `afterInit`, `load`)
+
+## Estructura JS
+
+- `_src/js/config/`
+  - Configuración reutilizable, constantes, breakpoints.
+- `_src/js/functionalities/`
+  - Módulos por dominio o funcionalidad.
+  - Cada funcionalidad debe exportar por defecto su función inicializadora.
+- `_src/js/libs/`
+  - Librerías de terceros o wrappers.
+- `_src/js/utils/`
+  - Utilidades compartidas, no funcionalidades completas.
+- Usar subcarpetas por dominio cuando aplique:
+  - `accessibility/`
+  - `admin/`
+  - `behavior/`
+  - `layout/`
+  - `menu/`
+  - `ui/`
+
+## Comentarios JS
+
+- Añadir cabecera al inicio de módulos cuando ayude a identificar el propósito.
+- Formato recomendado:
+
+```js
+// --------------------------------------------------
+// Functionalities: UI: Collapse
+// --------------------------------------------------
+```
+
+- Comentar el “por qué”, no repetir el “qué”.
+- Organizar archivos en secciones claras:
+  - `// Init`
+  - `// Functions`
+  - `// Bootstrap`

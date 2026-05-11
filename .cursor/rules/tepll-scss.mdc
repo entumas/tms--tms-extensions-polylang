@@ -1,0 +1,114 @@
+---
+description: TEPLL — Convenciones SCSS y CSS (plugin TMS Extensions)
+globs:
+  - "tms-extensions-polylang/**/*.scss"
+  - "tms-extensions-polylang/**/*.css"
+alwaysApply: false
+---
+
+# 4. SCSS / CSS
+
+## Naming CSS
+
+- Clases en `kebab-case`.
+  - Ejemplos:
+    - `.mini-cart`
+    - `.collapse-trigger`
+    - `.btn-primary`
+- No usar BEM estricto.
+- No usar nombres con `__`.
+- No usar modificadores tipo `--`.
+- Usar un estilo simple por componente:
+  - `.component`
+  - `.component-element`
+  - `.component.is-active`
+- Usar estados con clases tipo:
+  - `.is-active`
+  - `.is-open`
+  - `.has-items`
+- Mantener la convención ya usada en el proyecto si no contradice estas reglas.
+
+## Sintaxis SCSS
+
+- Usar anidación con moderación.
+- Evitar más de 3 niveles de anidación.
+- Usar `&` solo cuando mejore claridad.
+- Evitar estilos globales agresivos, especialmente `* { ... }` sin control.
+
+## Variables, funciones, mixins y placeholders
+
+- Usar variables para colores, fuentes, tamaños y espaciados.
+- Convención de variables:
+  - `$nombre--contexto`
+  - Ejemplos:
+    - `$color--primary`
+    - `$font-size--base`
+    - `$spacing--40`
+- Usar funciones reutilizables cuando aplique:
+  - `spacing()`
+  - `color()`
+  - `font-size()`
+  - `rem()`
+- Usar mixins para patrones repetidos:
+  - media queries
+  - visibilidad
+  - sombras
+  - patrones reutilizables
+- Usar placeholders `%` para estilos base extensibles:
+  - `%button-base`
+  - `%collapse-trigger`
+
+## Organización SCSS
+
+- Usar parciales con `_`.
+- Usar un punto de entrada principal:
+  - `styles.scss`
+- Orden de importación en `styles.scss`:
+  1. `tools/functions`
+  2. `settings`
+  3. `tools`
+  4. `libs`
+  5. `elements`
+  6. `layout`
+  7. `components`
+  8. `woocommerce`
+  9. `templates`
+  10. `fxs`
+  11. `helpers`
+
+## Estructura SCSS
+
+- `_src/scss/settings/`
+  - variables, maps, media queries, font-face, constants.
+- `_src/scss/tools/`
+  - functions, mixins, placeholders.
+- `_src/scss/elements/`
+  - estilos base de HTML.
+- `_src/scss/layout/`
+  - header, content, footer.
+- `_src/scss/components/`
+  - componentes reutilizables.
+- `_src/scss/templates/`
+  - estilos por plantilla.
+- `_src/scss/woocommerce/`
+  - estilos específicos de WooCommerce.
+- `_src/scss/admin/`
+  - estilos del admin.
+- `_src/scss/helpers/`
+  - clases auxiliares.
+- `_src/scss/fxs/`
+  - animaciones, loading y efectos.
+- `_src/scss/libs/`
+  - estilos de librerías externas.
+
+## Comentarios SCSS
+
+- Añadir cabecera en archivos relevantes:
+
+```scss
+// --------------------------------------------------
+// Components: Mini Cart
+// --------------------------------------------------
+```
+
+- Explicar solo bloques complejos, hacks o comportamientos especiales.

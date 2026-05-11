@@ -1,0 +1,126 @@
+---
+description: TEPLL — Estructura y carga del plugin WordPress (archivo principal e includes)
+globs:
+  - "tms-extensions-polylang/*.php"
+  - "tms-extensions-polylang/includes/**/*.php"
+alwaysApply: false
+---
+
+# 5. Plugin WordPress
+
+## Estructura general
+
+- El plugin vive en:
+  - `wp-content/plugins/{nombre-plugin}/`
+- Archivo principal:
+  - `{nombre-plugin}.php`
+- Carpetas habituales:
+  - `includes/` — lógica PHP del plugin.
+  - `css/` y `js/` — assets compilados.
+  - `languages/` — traducciones.
+  - `woocommerce/` — plantillas WooCommerce sobrescritas si aplica.
+- Dentro de carpetas que se suben a producción, añadir `index.php` con:
+  - `<?php if ( ! defined( 'ABSPATH' ) ) exit;`
+
+## Archivo principal del plugin
+
+Orden estricto:
+
+1. Guard ABSPATH y cabecera del plugin.
+2. Constantes:
+   - `TEPLL_PLUGIN_VERSION`
+   - `TEPLL_PLUGIN_FILE`
+   - `TEPLL_PLUGIN_PATH`
+   - `TEPLL_PLUGIN_URL`
+   - `TEPLL_PLUGIN_BASENAME`
+3. `dependencies.php`
+4. `i18n.php`
+5. `admin-enqueue.php`
+6. `utilities.php`
+7. Resto de includes necesarios.
+8. `bootstrap.php` al final.
+
+No invertir este orden:
+
+- `dependencies.php` antes de `i18n.php` y `admin-enqueue.php`.
+- `utilities.php` antes de usar `tepll_include_file()`.
+- `bootstrap.php` siempre al final.
+
+## Includes principales
+
+- `includes/dependencies.php`
+  - Carga dependencias necesarias.
+  - Define helpers como:
+    - `tepll_is_wc_active(): bool`
+    - `tepll_is_acf_active(): bool`
+  - Registra activation/deactivation hooks.
+  - Si faltan dependencias, desactiva el plugin y muestra error claro.
+- `includes/utilities.php`
+  - Define:
+    - `tepll_include_file( string $relative ): void`
+  - Debe usar rutas relativas desde `includes/`.
+  - Debe usar `error_log()` si el archivo no existe y `WP_DEBUG` está activo.
+- `includes/i18n.php`
+  - Carga el text domain en `init`, prioridad 5.
+- `includes/admin-enqueue.php`
+  - Registra CSS/JS solo en las pantallas necesarias.
+  - Usa `get_current_screen()`.
+  - Versiona assets con `filemtime()` o constante de versión.
+- `includes/bootstrap.php`
+  - Carga módulos del plugin.
+  - Se ejecuta en `plugins_loaded`, prioridad 20.
+  - Dentro de `bootstrap.php`, usar solo:
+    - `tepll_include_file( 'ruta/relativa.php' )`
+  - No definir constantes ni helpers aquí.
+  - Agrupar carga por áreas:
+    - System
+    - Privacy
+    - Actions
+    - Admin
+    - Filters
+    - Plugins
+    - WooCommerce
+    - Temporal
+
+## Subcarpetas de includes
+
+- `includes/actions/`
+  - Acciones globales.
+- `includes/admin/`
+  - Funcionalidad de administración.
+- `includes/filters/`
+  - Filtros globales.
+- `includes/system/`
+  - Seguridad, clean head, deregister scripts.
+- `includes/privacy/`
+  - Avisos, checkboxes y privacidad.
+- `includes/plugins/`
+  - Integraciones con plugins de terceros.
+- `includes/plugins/acf/`
+  - Integraciones ACF, solo si ACF está activo.
+- `includes/woocommerce/`
+  - Todo WooCommerce agrupado aquí.
+  - Cargar solo si WooCommerce está activo.
+- `includes/blocks/{nombre-bloque}/helpers/`
+  - PHP compartido por el bloque (render, utilidades, sin assets compilados del editor salvo que aplique).
+
+## WooCommerce
+
+- Mantener integraciones WooCommerce dentro de `includes/woocommerce/`.
+- Usar subcarpetas por dominio:
+  - `core/`
+  - `users/`
+  - `account/`
+  - `emails/`
+  - `events/`
+  - `purchase-restrictions/`
+  - `player-benefits/`
+  - `print-options/`
+  - `orders/`
+- No mezclar lógica genérica del plugin con lógica específica de WooCommerce.
+
+## Carga condicional
+
+- Cargar código de admin solo cuando corresponda con `is_admin()`, salvo funcionalidades que afecten también al frontend.
+- Cargar ACF solo si `tepll_is_acf_active()`.
+- Cargar WooCommerce solo si `tepll_is_wc_active()`.

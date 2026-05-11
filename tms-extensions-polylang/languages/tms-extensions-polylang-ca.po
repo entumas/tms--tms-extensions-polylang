@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: TMS Extensions for Polylang\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 15:14+0000\n"
-"PO-Revision-Date: 2026-04-13 13:11+0000\n"
+"PO-Revision-Date: 2026-05-11 10:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.3; wp-6.9.4; php-8.5.4\n"
+"X-Loco-Version: 2.8.3; wp-6.9.4; php-8.3.30\n"
 "X-Domain: tms-extensions-polylang"
 
 #. %s: plugin name.
@@ -33,7 +33,7 @@ msgstr "Totes les llengües"
 
 #: includes/blocks/html-sitemap/register.php:46
 msgid "Alphabetical (title)"
-msgstr "Alfabeticament (títol)"
+msgstr "Alfabèticament (títol)"
 
 #: includes/blocks/html-sitemap/register.php:61
 msgid "Anchor page in sitemap"
@@ -57,6 +57,15 @@ msgctxt "block description"
 msgid "Show or hide content by selected language."
 msgstr "Mostra o amaga el contingut per idioma seleccionat."
 
+#: includes/blocks/i18n/block-json-strings.php:21
+msgctxt "block description"
+msgid ""
+"Shows a different site Navigation menu for each Polylang language "
+"(wp_navigation). Not a language switcher."
+msgstr ""
+"Mostra un menú de navegació del lloc diferent per a cada idioma de Polylang "
+"(wp_navigation). No és un commutador d'idioma."
+
 #: includes/blocks/i18n/block-json-strings.php:11
 msgctxt "block title"
 msgid "HTML Sitemap for Polylang"
@@ -72,12 +81,27 @@ msgctxt "block title"
 msgid "Language Visibility"
 msgstr "Visibilitat per idioma"
 
+#: includes/blocks/i18n/block-json-strings.php:20
+msgctxt "block title"
+msgid "Menu by Language"
+msgstr "Menú per idioma"
+
+#: includes/blocks/i18n/block-json-strings.php:22
+msgctxt "block title"
+msgid "Menu by Language Slot"
+msgstr "Ranura del menú per idioma"
+
+#: includes/blocks/pll-menu-by-language/register.php:65
+msgctxt "block title in editor placeholder"
+msgid "Menu by Language"
+msgstr "Menú per idioma"
+
 #: includes/blocks/html-sitemap/register.php:47
 msgid "Blog (posts)"
 msgstr "Blog (articles)"
 
 #. %s: current language name or code.
-#: includes/components/pll-language-switcher/get.php:301
+#: includes/blocks/pll-language-switcher/helpers/get.php:248
 #, php-format
 msgid "Choose language. Current: %s"
 msgstr "Tria l'idioma. Actual: %s"
@@ -109,6 +133,10 @@ msgstr ""
 msgid "General"
 msgstr "General"
 
+#: includes/admin/plugin-list.php:23
+msgid "Get help"
+msgstr "Obtenir ajuda"
+
 #: includes/blocks/html-sitemap/register.php:52
 #: includes/blocks/html-sitemap/register.php:60
 msgid "Grouping taxonomy"
@@ -135,13 +163,13 @@ msgstr "Amaga a l'idioma seleccionat"
 msgid "HTML Sitemap for Polylang"
 msgstr "Mapa HTML per a Polylang"
 
-#. URI of the plugin
-msgid "https://github.com/entumas/tms--tms-extensions-polylang"
-msgstr "https://github.com/entumas/tms--tms-extensions-polylang"
-
 #. Author URI of the plugin
 msgid "https://tumasmuntane.com/"
 msgstr "https://tumasmuntane.com/"
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/tms-extensions-polylang"
+msgstr "https://wordpress.org/plugins/tms-extensions-polylang"
 
 #: includes/blocks/html-sitemap/register.php:48
 msgid "Include blog section"
@@ -154,6 +182,10 @@ msgstr "Inclou la secció al mapa del lloc"
 #: includes/blocks/pll-language-visibility/register.php:34
 msgid "Language"
 msgstr "Idioma"
+
+#: includes/blocks/pll-menu-by-language/register.php:64
+msgid "Language assignments"
+msgstr "Assignacions d'idioma"
 
 #: includes/blocks/pll-language-switcher/register.php:42
 msgid "Language code"
@@ -175,11 +207,15 @@ msgstr "Visibilitat per idioma"
 msgid "Language Visibility content"
 msgstr "Visibilitat del contingut segons l'idioma"
 
-#: includes/components/pll-language-switcher/get.php:61
-#: includes/components/pll-language-switcher/get.php:250
-#: includes/components/pll-language-switcher/get.php:359
+#: includes/blocks/pll-language-switcher/helpers/get.php:169
+#: includes/blocks/pll-language-switcher/helpers/get.php:306
+#: includes/blocks/pll-language-switcher/helpers/render-markup.php:57
 msgid "Languages"
 msgstr "Llengües"
+
+#: includes/admin/plugin-list.php:29
+msgid "Leave a review"
+msgstr "Deixa una ressenya"
 
 #: includes/blocks/pll-language-switcher/register.php:41
 msgid "Link text"
@@ -201,11 +237,23 @@ msgstr "Profunditat màxima (jerarquia de pàgines)"
 msgid "Menu order"
 msgstr "Ordre del menú"
 
+#: includes/blocks/pll-menu-by-language/register.php:68
+msgid "No languages are configured in Polylang."
+msgstr "No hi ha idiomes configurats a Polylang."
+
 #: includes/blocks/html-sitemap/register.php:65
 msgid "No public custom post types are registered."
 msgstr "No hi ha cap tipus de contingut personalitzat públic registrat."
 
-#: includes/components/pll-language-switcher/get.php:65
+#: includes/blocks/pll-menu-by-language/register.php:66
+msgid ""
+"No published navigation menus found. Create one under Appearance → Editor or "
+"the Navigation menu screen."
+msgstr ""
+"No s'ha trobat cap menú de navegació publicat. Creeu-ne un a Aparença → "
+"Editor o a la pantalla del menú de navegació."
+
+#: includes/blocks/pll-language-switcher/helpers/render-markup.php:61
 msgid "No translation is available for this page."
 msgstr "No hi ha traducció disponible per a aquesta pàgina."
 
@@ -220,6 +268,18 @@ msgstr "Ordenació de pàgines"
 #: includes/blocks/html-sitemap/register.php:53
 msgid "Posts anchor page"
 msgstr "Pàgina d'ancoratge dels articles"
+
+#: includes/blocks/pll-language-switcher/helpers/get.php:233
+msgid "Preview language"
+msgstr "Idioma de previsualització"
+
+#: includes/blocks/pll-language-switcher/helpers/pll-languages.php:55
+msgid "Preview: alternate language"
+msgstr "Previsualització: idioma alternatiu"
+
+#: includes/blocks/pll-language-switcher/helpers/pll-languages.php:47
+msgid "Preview: current language"
+msgstr "Previsualització: idioma actual"
 
 #: includes/blocks/pll-language-switcher/register.php:48
 msgid "Redirect to language home"
@@ -267,7 +327,7 @@ msgstr "Mostra la taxonomia sota la pàgina del blog"
 msgid "Show text"
 msgstr "Mostra text"
 
-#: includes/blocks/block-categories.php:12
+#: includes/blocks/block-categories.php:14
 msgid "TMS Blocks"
 msgstr "TMS Blocks"
 
@@ -290,6 +350,10 @@ msgstr "Llista vertical"
 #: includes/blocks/pll-language-visibility/register.php:35
 msgid "Visibility mode"
 msgstr "Mode de visibilitat"
+
+#: includes/admin/plugin-list.php:17
+msgid "Visit plugin site"
+msgstr "Visita el lloc del connector"
 
 #. %s: plugin name.
 #: includes/dependencies.php:154

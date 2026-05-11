@@ -1,13 +1,13 @@
 <?php
 /**
- * Blocks -> Sitemap -> Register
+ * Includes -> Blocks -> Html sitemap -> Register
  *
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 $tepll_html_sitemap_block_directory = __DIR__;
-$tepll_html_sitemap_block_url = plugin_dir_url( __FILE__ );
+$tepll_html_sitemap_block_url       = plugin_dir_url( __FILE__ );
 
 // Editor assets
 wp_register_style(
@@ -66,8 +66,8 @@ wp_localize_script(
 	)
 );
 
-$tepll_html_sitemap_editor_public_cpt_definitions    = tepll_html_sitemap_get_public_cpt_definitions_for_editor();
-$tepll_html_sitemap_editor_blog_taxonomy_definitions = tepll_html_sitemap_get_blog_taxonomy_definitions_for_editor();
+$tepll_html_sitemap_editor_public_cpt_definitions    = tepll_html_sitemap_get_editor_cpt_definitions();
+$tepll_html_sitemap_editor_blog_taxonomy_definitions = tepll_html_sitemap_get_editor_blog_taxonomies();
 wp_add_inline_script(
 	'tepll-html-sitemap-editor',
 	'window.tepllHtmlSitemapEditorCptDefinitions = ' . wp_json_encode( $tepll_html_sitemap_editor_public_cpt_definitions ) . ';'

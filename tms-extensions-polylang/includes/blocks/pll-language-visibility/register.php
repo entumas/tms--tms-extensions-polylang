@@ -1,13 +1,13 @@
 <?php
 /**
- * Blocks -> Pll Language Visibility -> Register
+ * Includes -> Blocks -> Pll language visibility -> Register
  *
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 $tepll_language_visibility_block_directory = __DIR__;
-$tepll_language_visibility_block_url = plugin_dir_url( __FILE__ );
+$tepll_language_visibility_block_url       = plugin_dir_url( __FILE__ );
 
 $tepll_language_visibility_i18n_all_languages = __( 'All languages', 'tms-extensions-polylang' );
 
@@ -15,7 +15,7 @@ $tepll_language_visibility_i18n_all_languages = __( 'All languages', 'tms-extens
 wp_register_style(
 	'tepll-pll-language-visibility-editor',
 	$tepll_language_visibility_block_url . 'editor.css',
-	array(),
+	array( 'dashicons' ),
 	filemtime( $tepll_language_visibility_block_directory . '/editor.css' )
 );
 wp_register_script(

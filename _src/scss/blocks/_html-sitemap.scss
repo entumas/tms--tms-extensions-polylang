@@ -1,0 +1,13 @@
+// --------------------------------------------------
+//	Blocks: HTML sitemap
+// --------------------------------------------------
+
+
+.tepll-html-sitemap {
+	@include block-wrapper-base();
+
+
+	&.is-no-bullets ul {
+		list-style: none;
+	}
+}

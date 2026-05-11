@@ -1,0 +1,64 @@
+// --------------------------------------------------
+// Pll menu by language: Editor styles
+// --------------------------------------------------
+
+
+// Init ========================================
+
+
+// Init ========================================
+
+@import "../../scss/tools/functions";
+@import "../../scss/settings/colors";
+@import "../../scss/tools/mixins";
+
+
+// Editor ========================================
+
+@import "../../scss/editor/canvas.scss";
+@import "../../scss/editor/panel.scss";
+
+
+// Canvas ========================================
+
+.tepll-pll-menu-by-language {
+	@include canvas-component;
+
+	&.is-empty {
+		border-color: tms-color-var('border');
+	}
+
+
+	// Preview ========================================
+
+	&-preview {
+		&.has-nav-preview {
+			pointer-events: none;
+		}
+	}
+
+
+	&-inner-structure {
+		display: none;
+	}
+
+
+	// Slot ========================================
+
+	&-slot {
+		box-sizing: border-box;
+		padding: 8px;
+		border: 1px dashed tms-color-var('border');
+		margin-bottom: 8px;
+
+
+		&-label {
+			font-size: 11px;
+			font-weight: 600;
+			text-transform: uppercase;
+			color: tms-color-var('black');
+			opacity: 0.65;
+			margin-bottom: 6px;
+		}
+	}
+}

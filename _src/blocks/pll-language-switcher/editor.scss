@@ -5,18 +5,21 @@
 
 // Init ========================================
 
-// Settings
-@import "../../scss/settings/colors.scss";
 
-// Tools
-@import "../../scss/tools/block-wrapper-base.scss";
+// Init ========================================
 
-// Admin
+@import "../../scss/tools/functions";
+@import "../../scss/settings/colors";
+@import "../../scss/tools/mixins";
+
+
+// Editor ========================================
+
 @import "../../scss/editor/canvas.scss";
 @import "../../scss/editor/panel.scss";
 
 
-// Elements ========================================
+// Canvas ========================================
 
 .tepll-pll-language-switcher {
 
@@ -25,6 +28,7 @@
 
 	&.is-default-mode {
 		@include canvas-component;
+
 
 		.components-placeholder__label {
 			@include canvas-component-title;
@@ -35,8 +39,9 @@
 	// Preview ========================================
 
 	&.is-preview-mode {
-		@import "../../scss/components/language-switcher.scss";
+		@import "../../scss/blocks/language-switcher.scss";
 		@include double-wrapper-reset;
+
 
 		a {
 			@include no-click;

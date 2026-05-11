@@ -5,10 +5,11 @@
 
 // Init ========================================
 
-// Tools
-@import "../../scss/tools/block-wrapper-base.scss";
+@import "../../scss/tools/functions";
+@import "../../scss/settings/colors";
+@import "../../scss/tools/mixins";
 
 
-// Components ========================================
+// Block ========================================
 
-@import "../../scss/components/language-switcher.scss";
+@import "../../scss/blocks/language-switcher.scss";

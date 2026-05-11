@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: TMS Extensions for Polylang\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 15:14+0000\n"
-"PO-Revision-Date: 2026-04-13 13:10+0000\n"
+"PO-Revision-Date: 2026-05-11 10:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: tms-extensions-polylang\n"
-"X-Loco-Version: 2.8.3; wp-6.9.4; php-8.5.4"
+"X-Loco-Version: 2.8.3; wp-6.9.4; php-8.3.30"
 
 #. %s: plugin name.
 #: includes/dependencies.php:42
@@ -57,6 +57,15 @@ msgctxt "block description"
 msgid "Show or hide content by selected language."
 msgstr "Inhalte je nach ausgewählter Sprache ein- oder ausblenden."
 
+#: includes/blocks/i18n/block-json-strings.php:21
+msgctxt "block description"
+msgid ""
+"Shows a different site Navigation menu for each Polylang language "
+"(wp_navigation). Not a language switcher."
+msgstr ""
+"Zeigt für jede Polylang-Sprache ein anderes Website-Navigationsmenü "
+"(wp_navigation). Kein Sprachumschalter."
+
 #: includes/blocks/i18n/block-json-strings.php:11
 msgctxt "block title"
 msgid "HTML Sitemap for Polylang"
@@ -72,12 +81,27 @@ msgctxt "block title"
 msgid "Language Visibility"
 msgstr "Sprachsichtbarkeit"
 
+#: includes/blocks/i18n/block-json-strings.php:20
+msgctxt "block title"
+msgid "Menu by Language"
+msgstr "Menü nach Sprache"
+
+#: includes/blocks/i18n/block-json-strings.php:22
+msgctxt "block title"
+msgid "Menu by Language Slot"
+msgstr "Platzhalter für Menü nach Sprache"
+
+#: includes/blocks/pll-menu-by-language/register.php:65
+msgctxt "block title in editor placeholder"
+msgid "Menu by Language"
+msgstr "Menü nach Sprache"
+
 #: includes/blocks/html-sitemap/register.php:47
 msgid "Blog (posts)"
 msgstr "Blog (Beiträge)"
 
 #. %s: current language name or code.
-#: includes/components/pll-language-switcher/get.php:301
+#: includes/blocks/pll-language-switcher/helpers/get.php:248
 #, php-format
 msgid "Choose language. Current: %s"
 msgstr "Sprache wählen. Aktuell: %s"
@@ -109,6 +133,10 @@ msgstr ""
 msgid "General"
 msgstr "Allgemein"
 
+#: includes/admin/plugin-list.php:23
+msgid "Get help"
+msgstr "Holen Sie sich Hilfe"
+
 #: includes/blocks/html-sitemap/register.php:52
 #: includes/blocks/html-sitemap/register.php:60
 msgid "Grouping taxonomy"
@@ -135,13 +163,13 @@ msgstr "In ausgewählter Sprache ausblenden"
 msgid "HTML Sitemap for Polylang"
 msgstr "HTML-Sitemap für Polylang"
 
-#. URI of the plugin
-msgid "https://github.com/entumas/tms--tms-extensions-polylang"
-msgstr "https://github.com/entumas/tms--tms-extensions-polylang"
-
 #. Author URI of the plugin
 msgid "https://tumasmuntane.com/"
 msgstr "https://tumasmuntane.com/"
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/tms-extensions-polylang"
+msgstr "https://wordpress.org/plugins/tms-extensions-polylang"
 
 #: includes/blocks/html-sitemap/register.php:48
 msgid "Include blog section"
@@ -154,6 +182,10 @@ msgstr "Abschnitt in die Sitemap aufnehmen"
 #: includes/blocks/pll-language-visibility/register.php:34
 msgid "Language"
 msgstr "Sprache"
+
+#: includes/blocks/pll-menu-by-language/register.php:64
+msgid "Language assignments"
+msgstr "Sprachzuweisungen"
 
 #: includes/blocks/pll-language-switcher/register.php:42
 msgid "Language code"
@@ -175,11 +207,15 @@ msgstr "Sprachsichtbarkeit"
 msgid "Language Visibility content"
 msgstr "Inhaltssichtbarkeit nach Sprache"
 
-#: includes/components/pll-language-switcher/get.php:61
-#: includes/components/pll-language-switcher/get.php:250
-#: includes/components/pll-language-switcher/get.php:359
+#: includes/blocks/pll-language-switcher/helpers/get.php:169
+#: includes/blocks/pll-language-switcher/helpers/get.php:306
+#: includes/blocks/pll-language-switcher/helpers/render-markup.php:57
 msgid "Languages"
 msgstr "Sprachen"
+
+#: includes/admin/plugin-list.php:29
+msgid "Leave a review"
+msgstr "Hinterlassen Sie eine Bewertung"
 
 #: includes/blocks/pll-language-switcher/register.php:41
 msgid "Link text"
@@ -201,12 +237,24 @@ msgstr "Maximale Tiefe (Seitenhierarchie)"
 msgid "Menu order"
 msgstr "Menüreihenfolge"
 
+#: includes/blocks/pll-menu-by-language/register.php:68
+msgid "No languages are configured in Polylang."
+msgstr "In Polylang sind keine Sprachen konfiguriert."
+
 #: includes/blocks/html-sitemap/register.php:65
 msgid "No public custom post types are registered."
 msgstr ""
 "Es sind keine öffentlichen benutzerdefinierten Inhaltstypen registriert."
 
-#: includes/components/pll-language-switcher/get.php:65
+#: includes/blocks/pll-menu-by-language/register.php:66
+msgid ""
+"No published navigation menus found. Create one under Appearance → Editor or "
+"the Navigation menu screen."
+msgstr ""
+"Es wurden keine veröffentlichten Navigationsmenüs gefunden. Erstellen Sie "
+"eines unter Design → Editor oder im Bildschirm „Navigationsmenü“."
+
+#: includes/blocks/pll-language-switcher/helpers/render-markup.php:61
 msgid "No translation is available for this page."
 msgstr "Für diese Seite ist keine Übersetzung verfügbar."
 
@@ -221,6 +269,18 @@ msgstr "Seitensortierung"
 #: includes/blocks/html-sitemap/register.php:53
 msgid "Posts anchor page"
 msgstr "Ankerseite für Beiträge"
+
+#: includes/blocks/pll-language-switcher/helpers/get.php:233
+msgid "Preview language"
+msgstr "Vorschau-Sprache"
+
+#: includes/blocks/pll-language-switcher/helpers/pll-languages.php:55
+msgid "Preview: alternate language"
+msgstr "Vorschau: alternative Sprache"
+
+#: includes/blocks/pll-language-switcher/helpers/pll-languages.php:47
+msgid "Preview: current language"
+msgstr "Vorschau: aktuelle Sprache"
 
 #: includes/blocks/pll-language-switcher/register.php:48
 msgid "Redirect to language home"
@@ -250,7 +310,7 @@ msgstr "In ausgewählter Sprache anzeigen"
 
 #: includes/blocks/html-sitemap/register.php:41
 msgid "Show list bullets"
-msgstr "Liste anzeigen"
+msgstr "Listenpunkte anzeigen"
 
 #: includes/blocks/html-sitemap/register.php:51
 msgid "Show posts"
@@ -268,7 +328,7 @@ msgstr "Taxonomie unter der Blog-Seite anzeigen"
 msgid "Show text"
 msgstr "Text anzeigen"
 
-#: includes/blocks/block-categories.php:12
+#: includes/blocks/block-categories.php:14
 msgid "TMS Blocks"
 msgstr "TMS Blocks"
 
@@ -291,6 +351,10 @@ msgstr "Vertikale Liste"
 #: includes/blocks/pll-language-visibility/register.php:35
 msgid "Visibility mode"
 msgstr "Sichtbarkeitsmodus"
+
+#: includes/admin/plugin-list.php:17
+msgid "Visit plugin site"
+msgstr "Besuchen Sie die Plugin-Site"
 
 #. %s: plugin name.
 #: includes/dependencies.php:154

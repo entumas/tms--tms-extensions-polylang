@@ -1,0 +1,142 @@
+// --------------------------------------------------
+//	Blocks: Language switcher
+// --------------------------------------------------
+
+
+// Mixins ========================================
+
+@mixin language-item {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	text-decoration: none;
+	line-height: inherit;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+
+	a {
+		font-size: inherit;
+		font-weight: inherit;
+		text-decoration: inherit;
+		line-height: inherit;
+		background-color: inherit;
+		border: inherit;
+		cursor: inherit;
+	}
+}
+
+@mixin language-link {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+
+	&:not(:hover) {
+		color: inherit !important;
+	}
+}
+
+
+// Base ========================================
+
+nav.tepll-pll-language-switcher {
+	@include block-wrapper-base();
+	font-family: inherit;
+
+
+	ul {
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+
+	li.tepll-pll-language-switcher-item {
+		@include language-item;
+		display: flex;
+		align-items: center;
+	}
+
+
+	a {
+		@include language-link;
+	}
+
+
+	img.tepll-pll-language-switcher-flag {
+		width: 20px;
+	}
+
+	// Items ========================================
+
+	&.has-flag:not(.has-code):not(.has-name) {
+
+		li.tepll-pll-language-switcher-item  {
+			aspect-ratio: 1 / 1;
+		}
+	}
+
+	&.has-code {
+
+		li.tepll-pll-language-switcher-item {
+			text-transform: uppercase;
+		}
+
+		button.tepll-pll-language-switcher-toggle {
+			text-transform: uppercase;
+		}
+	}
+
+
+	// List ========================================
+
+	&.is-list {
+
+		ul.tepll-pll-language-switcher-list {
+			gap: 10px;
+			padding: 0;
+		}
+
+		&.is-vertical ul.tepll-pll-language-switcher-list {
+			flex-direction: column;
+			gap: 0;
+		}
+	}
+
+	// Dropdown ========================================
+
+	&.is-dropdown {
+		position: relative;
+
+
+		button.tepll-pll-language-switcher-toggle {
+			@include language-item;
+			@include language-link;
+		}
+
+
+		ul.tepll-pll-language-switcher-dropdown {
+			flex-direction: column;
+			position: absolute;
+			z-index: 501;
+			top: 100%;
+			left: 0;
+			min-width: initial;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity .3s ease;
+
+			&.is-open {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+
+		li.tepll-pll-language-switcher-item {}
+	}
+}

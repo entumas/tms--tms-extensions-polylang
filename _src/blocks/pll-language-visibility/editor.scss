@@ -5,30 +5,35 @@
 
 // Init ========================================
 
-// Settings
-@import "../../scss/settings/colors.scss";
 
-// Tools
-@import "../../scss/tools/block-wrapper-base.scss";
+// Init ========================================
 
-// Admin
+@import "../../scss/tools/functions";
+@import "../../scss/settings/colors";
+@import "../../scss/tools/mixins";
+
+
+// Editor ========================================
+
 @import "../../scss/editor/canvas.scss";
 @import "../../scss/editor/panel.scss";
 
 
-// Elements ========================================
+// Canvas ========================================
 
 .tepll-pll-language-visibility {
 	@include canvas-component;
 
 	&.is-show {
-		border-color: $color--success;
+		border-color: tms-color-var('success');
 	}
 
 	&.is-hide {
-		border-color: $color--error;
+		border-color: tms-color-var('error');
 	}
 
+
+	// Placeholder ========================================
 
 	&-placeholder {
 		@include canvas-component-title;
@@ -37,12 +42,14 @@
 	}
 
 
+	// Appender ========================================
+
 	.components-button.block-editor-button-block-appender {
 		padding: 0;
 		width: 24px;
 		height: 24px;
-		color: $color--white;
-		background: $color--black;
+		color: tms-color-var('white');
+		background-color: tms-color-var('black');
 	}
 
 	&.is-empty .block-list-appender {

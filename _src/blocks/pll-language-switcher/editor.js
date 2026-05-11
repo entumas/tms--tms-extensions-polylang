@@ -7,14 +7,14 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 
 
 ;( ( wp ) => {
-	const { registerBlockType }                               = wp.blocks,
+	const { registerBlockType } = wp.blocks,
 		{ PanelBody, SelectControl, ToggleControl, Dashicon } = wp.components,
-		{ InspectorControls, useBlockProps }                  = wp.blockEditor
+		{ InspectorControls, useBlockProps } = wp.blockEditor
 	const { ServerSideRender } = wp.serverSideRender || {}
 
 	const tepllLanguageSwitcherEditorI18nStrings = window.tepllLanguageSwitcherEditorI18n
 
-	const { useState, useRef, useEffect } = wp.element
+	const { useEffect } = wp.element
 
 	// Editor preview mode (auto/default)
 	const tepllLanguageSwitcherEditorPreviewMode = 'auto'
@@ -32,15 +32,6 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 				redirect_to_home,
 			}, setAttributes } = props
 
-			const initialDefault = tepllLanguageSwitcherEditorPreviewMode === 'default' || ! ServerSideRender
-
-			const [ previewState, setPreviewState ] = useState( initialDefault ? 'default' : 'preview' )
-
-			const previewStateRef = useRef( previewState )
-			useEffect( () => {
-				previewStateRef.current = previewState
-			}, [ previewState ] )
-
 			// Keep these options mutually exclusive
 			useEffect( () => {
 				if ( redirect_to_home && hide_if_no_translation ) {
@@ -48,9 +39,10 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 				}
 			}, [ redirect_to_home, hide_if_no_translation ] )
 
-			const tepllLanguageSwitcherEditorPreviewLayoutClassName = previewState === 'default'
-				? 'is-default-mode'
-				: 'is-preview-mode'
+			const tepllLanguageSwitcherEditorPreviewLayoutClassName =
+				tepllLanguageSwitcherEditorPreviewMode === 'default' || ! ServerSideRender
+					? 'is-default-mode'
+					: 'is-preview-mode'
 
 			const tepllLanguageSwitcherEditorRootBlockProps = useBlockProps( {
 				className: 'tepll-pll-language-switcher is-placeholder ' + tepllLanguageSwitcherEditorPreviewLayoutClassName,
@@ -65,21 +57,13 @@ import '../../js/features/pll-language-switcher/dropdown.js'
 				{ value: 'name', label: tepllLanguageSwitcherEditorI18nStrings.labelName },
 			]
 
-			const tepllLanguageSwitcherEditorMarkDefaultPreview = () => {
-				if ( previewStateRef.current === 'default' ) return
-				setTimeout( () => setPreviewState( 'default' ), 0 )
-			}
-
-			const tepllLanguageSwitcherEditorRenderPreviewFallback = () => {
-				tepllLanguageSwitcherEditorMarkDefaultPreview()
-
-				return wp.element.createElement(
+			const tepllLanguageSwitcherEditorRenderPreviewFallback = () =>
+				wp.element.createElement(
 					'div',
 					{ className: 'components-placeholder__label' },
 					wp.element.createElement( Dashicon, { icon: 'translation' } ),
 					wp.element.createElement( 'label', null, tepllLanguageSwitcherEditorI18nStrings.panelTitle )
 				)
-			}
 
 			const preview = ServerSideRender
 				? wp.element.createElement(

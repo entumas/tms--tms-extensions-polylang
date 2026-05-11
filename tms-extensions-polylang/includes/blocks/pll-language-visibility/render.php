@@ -1,12 +1,10 @@
 <?php
 /**
- * Blocks -> Pll Language Visibility -> Render
+ * Includes -> Blocks -> Pll language visibility -> Render
  *
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-
-if ( ! function_exists( 'tepll_language_visibility_get_html' ) ) return '';
 
 $tepll_language_visibility_block_attributes = isset( $attributes ) && is_array( $attributes )
 	? $attributes

@@ -1,0 +1,30 @@
+---
+description: TEPLL — WooCommerce e integraciones de terceros (ACF, plugins)
+globs:
+  - "tms-extensions-polylang/includes/woocommerce/**/*"
+  - "tms-extensions-polylang/includes/plugins/**/*"
+alwaysApply: false
+---
+
+# 5. Plugin WordPress
+
+## WooCommerce
+
+- Mantener integraciones WooCommerce dentro de `includes/woocommerce/`.
+- Usar subcarpetas por dominio:
+  - `core/`
+  - `users/`
+  - `account/`
+  - `emails/`
+  - `events/`
+  - `purchase-restrictions/`
+  - `player-benefits/`
+  - `print-options/`
+  - `orders/`
+- No mezclar lógica genérica del plugin con lógica específica de WooCommerce.
+
+## Carga condicional
+
+- Cargar código de admin solo cuando corresponda con `is_admin()`, salvo funcionalidades que afecten también al frontend.
+- Cargar ACF solo si `tepll_is_acf_active()`.
+- Cargar WooCommerce solo si `tepll_is_wc_active()`.

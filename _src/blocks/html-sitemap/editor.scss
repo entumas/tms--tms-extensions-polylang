@@ -5,18 +5,18 @@
 
 // Init ========================================
 
-// Settings
-@import "../../scss/settings/colors.scss";
+@import "../../scss/tools/functions";
+@import "../../scss/settings/colors";
+@import "../../scss/tools/mixins";
 
-// Tools
-@import "../../scss/tools/block-wrapper-base.scss";
 
-// Admin
+// Editor ========================================
+
 @import "../../scss/editor/canvas.scss";
 @import "../../scss/editor/panel.scss";
 
 
-// Elements ========================================
+// Canvas ========================================
 
 .tepll-html-sitemap {
 
@@ -25,6 +25,7 @@
 
 	&.is-default-mode {
 		@include canvas-component;
+
 
 		.components-placeholder__label {
 			@include canvas-component-title;
@@ -35,7 +36,7 @@
 	// Preview ========================================
 
 	&.is-preview-mode {
-		@import "../../scss/components/html-sitemap.scss";
+		@import "../../scss/blocks/html-sitemap.scss";
 
 
 		.tepll-html-sitemap-root {
@@ -48,6 +49,7 @@
 		.wp-block-tepll-html-sitemap {
 			@include double-wrapper-reset;
 		}
+
 
 		a {
 			@include no-click;

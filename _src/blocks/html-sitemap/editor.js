@@ -17,7 +17,6 @@
 	const { ServerSideRender }                 = wp.serverSideRender || {}
 
 	const tepllHtmlSitemapEditorI18nStrings = window.tepllHtmlSitemapEditorI18n || {}
-	const { useState, useRef, useEffect }   = wp.element
 
 	// Editor preview mode (auto/default)
 	const tepllHtmlSitemapEditorPreviewMode = 'auto'
@@ -133,18 +132,10 @@
 				}
 			}, [] )
 
-			const initialDefault = tepllHtmlSitemapEditorPreviewMode === 'default' || ! ServerSideRender
-
-			const [ previewState, setPreviewState ] = useState( initialDefault ? 'default' : 'preview' )
-
-			const previewStateRef = useRef( previewState )
-			useEffect( () => {
-				previewStateRef.current = previewState
-			}, [ previewState ] )
-
-			const tepllHtmlSitemapEditorPreviewLayoutClassName = previewState === 'default'
-				? 'is-default-mode'
-				: 'is-preview-mode'
+			const tepllHtmlSitemapEditorPreviewLayoutClassName =
+				tepllHtmlSitemapEditorPreviewMode === 'default' || ! ServerSideRender
+					? 'is-default-mode'
+					: 'is-preview-mode'
 
 			const tepllHtmlSitemapEditorRootBlockProps = useBlockProps( {
 				className: 'tepll-html-sitemap is-placeholder ' + tepllHtmlSitemapEditorPreviewLayoutClassName,
@@ -419,20 +410,13 @@
 					)
 				),
 				( () => {
-					const tepllHtmlSitemapEditorMarkDefaultPreview = () => {
-						if ( previewStateRef.current === 'default' ) return
-						setTimeout( () => setPreviewState( 'default' ), 0 )
-					}
-
-					const tepllHtmlSitemapEditorRenderPreviewFallback = () => {
-						tepllHtmlSitemapEditorMarkDefaultPreview()
-						return el(
+					const tepllHtmlSitemapEditorRenderPreviewFallback = () =>
+						el(
 							'div',
 							{ className: 'components-placeholder__label' },
 							el( Dashicon, { icon: 'networking' } ),
 							el( 'span', null, tepllHtmlSitemapEditorI18nStrings.placeholderLabel )
 						)
-					}
 
 					const tepllHtmlSitemapEditorRenderPreviewLoadingPlaceholder = () => null
 

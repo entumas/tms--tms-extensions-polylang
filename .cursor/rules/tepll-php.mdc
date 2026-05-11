@@ -1,0 +1,63 @@
+---
+description: TEPLL — Convenciones PHP (plugin TMS Extensions)
+globs: "tms-extensions-polylang/**/*.php"
+alwaysApply: false
+---
+
+# 2. PHP
+
+## Naming PHP
+
+- Funciones globales en `snake_case` con prefijo `tepll_`.
+- Variables y propiedades con nombres descriptivos, alineados con WordPress/WooCommerce cuando corresponda.
+- Constantes en `UPPER_SNAKE_CASE` con prefijo `TEPLL_`.
+  - Ejemplos:
+    - `TEPLL_PLUGIN_VERSION`
+    - `TEPLL_PLUGIN_PATH`
+    - `TEPLL_PLUGIN_URL`
+- Clases en `PascalCase`, con prefijo `TEPLL_` cuando aplique.
+  - Ejemplo:
+    - `TEPLL_Order_Status_Manager`
+
+## Sintaxis PHP
+
+- Cumplir WordPress Coding Standards.
+- Usar internacionalización con el text domain correcto.
+- Usar `strict_types` en archivos nuevos siempre que sea posible.
+- Tipar parámetros y retornos en funciones y métodos nuevos cuando se conozcan los tipos.
+- Usar sintaxis alternativa de PHP en plantillas o estructuras HTML:
+  - `endif;`
+  - `endforeach;`
+  - `endwhile;`
+- Usar `array()` en vez de `[]`.
+- No usar `@` para silenciar errores.
+- Manejar errores explícitamente con `error_log()` u otro mecanismo adecuado cuando algo importante falle.
+- Añadir al inicio de cada archivo PHP:
+  - `if ( ! defined( 'ABSPATH' ) ) exit;`
+
+## Organización PHP
+
+- Archivos PHP con nombre descriptivo en kebab-case:
+  - `{nombre-descriptivo}.php`
+- Archivos de clases:
+  - `class-tepll-{nombre-descriptivo}.php`
+  - Ejemplo:
+    - `class-tepll-order-status-manager.php`
+- Mantener un archivo por responsabilidad.
+- Centralizar includes/carga en bootstrap, autoloader o archivo equivalente.
+- Evitar `require` / `include` dispersos por el plugin.
+- Agrupar helpers relacionados en archivos específicos:
+  - `includes/utilities.php`
+  - `includes/woocommerce/helpers.php`
+
+## Comentarios y PHPDoc
+
+- Cabecera de archivo con el módulo o ruta lógica.
+- Añadir descripción solo si el propósito es abstracto o poco claro.
+- Usar PHPDoc en métodos públicos importantes si aporta valor.
+- No añadir `@param` ni `@return` si no aportan información útil.
+- Usar comentarios de sección cuando ayuden:
+  - `// Hooks`
+  - `// Filters`
+  - `// Actions`
+  - `// Helpers`
